@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulkanStore
+        
+    </title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            font-size: 2em;
+            margin: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: calc(33% - 20px);
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card img {
+            display: block;
+            width: 100%;
+            height: auto;
+           
+        }
+        .scroll-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #ccc;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .scroll-left {
+            left: 0;
+        }
+        .scroll-right {
+            right: 0;
+        }
+        .card-description {
+            display: none;
+            padding: 15px;
+            font-size: 0.9em;
+            
+        }
+
+        .card a {
+            text-decoration: none;
+        }
+
+        .card button {
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .card button:hover {
+            background-color: #005f73;            
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                width: calc(100% - 20px);
+            }
+
+            .card-description {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>VulkanStore</header>
+    
+    <div class="container">
+        <div class="card">
+            <img id="image1" src="  " alt="Archivo 1">
+            <div class="card-description" id="p1">
+               <h1>Politopya:</h1> 
+               <p>Politopya es un juego de simulación política y estratégica.</p>
+               <p>Los jugadores pueden crear y gestionar su propio país virtual.</p>
+               <p>El objetivo principal es tomar decisiones que afecten el desarrollo y estabilidad del país.</p>
+               <p>Los jugadores gestionan recursos como el dinero, la población y la política exterior.</p>
+               <p>Politopya ofrece un entorno competitivo en el que los jugadores interactúan entre sí a través de elecciones y tratados internacionales.</p>
+               <p>El juego pone a prueba las habilidades estratégicas y diplomáticas de los jugadores.</p>
+               <p>Los jugadores deben lidiar con crisis económicas, guerras y conflictos sociales.</p>
+               <p>El avance en Politopya depende de las decisiones tomadas en la política interna y en la relación con otros países.</p>
+               <p>Es un juego de tipo multijugador masivo, donde las decisiones de los jugadores afectan directamente al entorno del juego.</p>
+               <p>Politopya permite a los jugadores experimentar los desafíos del liderazgo en un mundo virtual.</p>
+
+            </div>
+            <button id="mostrarP1">Detalles</button>
+            <a href="aplicaciones/Polytopia_2.11.0.13185_apkcombo.app.apk" download>
+                <button>Descargar androide</button>
+            </a>
+            <a href="https://apps.apple.com/us/app/the-battle-of-polytopia/id1006393168?l=es-MX"><button>Descargar archivo IOS</button></a>
+        </div>
+
+
+
+        <div class="card">
+            <img id="image2" src="  " alt="Archivo 2">
+            <div class="card-description" id="p2">
+               <h1>Win Rar</h1>
+               <p>WinRAR es un programa de compresión de archivos ampliamente utilizado.</p>
+<p>Permite comprimir archivos y carpetas en varios formatos, principalmente en RAR y ZIP.</p>
+<p>Con WinRAR, los usuarios pueden reducir el tamaño de los archivos, lo que facilita su almacenamiento y envío.</p>
+<p>El software también permite la creación de archivos autoextraíbles (SFX), que se descomprimen sin necesidad de tener WinRAR instalado.</p>
+<p>WinRAR soporta la creación de archivos multivolumen, lo que facilita la división de archivos grandes en partes más pequeñas.</p>
+<p>El programa es compatible con muchos otros formatos de archivo, como 7z, TAR, GZ, y más.</p>
+<p>WinRAR tiene una interfaz de usuario intuitiva, fácil de usar incluso para principiantes.</p>
+<p>Los usuarios pueden cifrar sus archivos comprimidos con una contraseña, ofreciendo mayor seguridad para los datos sensibles.</p>
+<p>Además de la compresión, WinRAR también permite la reparación de archivos RAR dañados, si es necesario.</p>
+<p>La aplicación tiene una función de administración de aplicaciones, permitiendo ver, desinstalar o mover aplicaciones en el dispositivo.</p>
+<p>File Manager ofrece una experiencia fluida y fácil de usar, con opciones avanzadas para usuarios que necesitan organizar grandes cantidades de archivos.</p>
+            </div>
+            <button id="mostrarP2">Mostrar P1</button>
+            <a href="aplicaciones/RAR_2020.03.31_apkcombo.app.apk" download>
+                <button>Descargar android</button>
+            </a>
+            <a href="https://apps.apple.com/us/app/irar-descomprimir-archivos/id989212129?l=es-MX"><button>Descargar archivo IOS</button></a>
+            
+        </div>
+
+        <div class="card">
+            <img id="image3" src="   " alt="Archivo 3">
+            <div class="card-description" id="p3">
+            <h1>File Manager</h1>
+            <p>File Manager es una aplicación diseñada para gestionar los archivos en dispositivos móviles y tabletas.</p>
+<p>Permite a los usuarios explorar, organizar y administrar sus archivos y carpetas de manera eficiente.</p>
+<p>Con File Manager, puedes mover, copiar, pegar, eliminar y renombrar archivos fácilmente desde una interfaz intuitiva.</p>
+<p>La aplicación es compatible con una amplia gama de formatos de archivo, incluyendo documentos, imágenes, videos, y archivos comprimidos.</p>
+<p>File Manager ofrece la capacidad de acceder a archivos en almacenamiento local, tarjetas SD y servicios en la nube como Google Drive, Dropbox, y OneDrive.</p>
+<p>Los usuarios pueden buscar archivos de manera rápida utilizando la función de búsqueda incorporada.</p>
+<p>File Manager permite la visualización previa de muchos tipos de archivos, como imágenes, documentos PDF y archivos de texto.</p>
+<p>También soporta la gestión de archivos comprimidos, permitiendo descomprimir y extraer archivos ZIP, RAR, y otros formatos.</p>
+
+            </div>
+            <button id="mostrarP3">Mostrar P1</button>
+            <a href="aplicaciones/File Manager_3.4.9_apkcombo.app.apk" download>
+                <button>Descargar android</button>
+            </a>
+            <a href="https://apps.apple.com/us/app/administrador-de-ficheros/id1664683192?l=es-MX"><button>Descargar archivo IOS</button></a>
+            
+        </div>
+     
+    <div class="card">
+        <img id="image4" src="aplicaciones/img/vulkanStore.png" alt="Archivo 4">
+        <div class="card-description" id="p4">
+        <h1>**vulkanStore**</h1>
+       
+        <div>
+            <p>🌟 VulkanStore 1.0 - Tu Tienda de Aplicaciones Definitiva 🌟</p>
+            <p>¡Bienvenido a VulkanStore, la tienda de aplicaciones oficial de VulkanBlue! Con la versión 1.0, traemos una selección cuidadosamente curada de las mejores aplicaciones para tu dispositivo. Diseñada para facilitarte el acceso a las aplicaciones más innovadoras, útiles y entretenidas, VulkanStore es tu destino único para todas tus necesidades de software.</p>
+            <p>Características Principales:</p>
+            <p>📱 Descubre Nuevas Aplicaciones: Explora una amplia variedad de categorías y encuentra aplicaciones que se adapten a tus intereses y necesidades. Desde productividad hasta entretenimiento, tenemos todo lo que buscas.</p>
+            <p>🛒 Compras Seguras y Confiables: Realiza tus compras con total tranquilidad. VulkanStore garantiza la seguridad y protección de tus transacciones y datos personales.</p>
+            <p>🔥 Tendencias y Recomendaciones: Mantente al día con las aplicaciones más populares y las novedades del mercado. Recibe recomendaciones personalizadas basadas en tus preferencias y hábitos de uso.</p>
+            <p>⭐ Valoraciones y Reseñas: Lee opiniones de otros usuarios y deja tus propias valoraciones para ayudar a la comunidad a encontrar las mejores aplicaciones.</p>
+            <p>🔔 Actualizaciones Automáticas: Mantén tus aplicaciones al día con las últimas características y mejoras. VulkanStore te notifica automáticamente sobre actualizaciones disponibles.</p>
+            <p>💬 Soporte Técnico: ¿Tienes alguna duda o problema? Nuestro equipo de soporte está siempre disponible para asistirte y resolver cualquier inconveniente que puedas tener.</p>
+            <p>🔍 Búsqueda Avanzada: Encuentra rápidamente lo que necesitas con nuestra herramienta de búsqueda avanzada. Filtra los resultados por categoría, popularidad, calificación y más.</p>
+            <p>🌐 Interfaz Intuitiva: Disfruta de una experiencia de usuario fluida y amigable con una interfaz intuitiva y fácil de navegar.</p>
+            <p>---</p>
+            <p>¡Descubre un mundo de posibilidades con VulkanStore 1.0! Únete a la comunidad de VulkanBlue y accede a las mejores aplicaciones para tu dispositivo. 📱✨</p>
+          </div>
+          
+        </div>
+        <button id="mostrarP4">Detalles</button>
+        <a href="aplicaciones/VulkanStore 1.0 (1).zip" download>
+            <button>Descargar para android</button>
+        </a>
+        <a href="https://apps.apple.com/us/app/administrador-de-ficheros/id1664683192?l=es-MX"><button>Descargar archivo IOS</button></a>
+        
+    </div>
+    <div class="card">
+        <img id="image5" src="aplicaciones/img/picblues.jpg" alt="Archivo 5">
+        <div class="card-description" id="p5">
+        <h1>picBlue</h1>
+        <div>
+            <p>🌟 picBlue 1.0 - Tu Plataforma para Compartir y Vender Fotos 🌟</p>
+            <p>¡Bienvenido a picBlue, la innovadora aplicación móvil de VulkanBlue diseñada para fotógrafos y amantes de la fotografía! Con picBlue, subir, compartir y vender tus fotos nunca ha sido tan fácil y divertido. Ya seas un profesional o un aficionado, picBlue te ofrece todas las herramientas necesarias para sacar el máximo provecho de tu talento.</p>
+            <p>Características Principales:</p>
+            <p>📸 Sube Tus Fotos: Comparte tus mejores capturas con una comunidad global de fotógrafos y entusiastas. ¡Mostrar tu trabajo nunca fue tan sencillo!</p>
+            <p>🛒 Vende Tus Fotos: Transforma tu pasión en ingresos. picBlue ofrece un mercado seguro y confiable para que puedas vender tus fotos a compradores de todo el mundo.</p>
+            <p>🔍 Explora y Descubre: Navega por una amplia variedad de categorías y descubre impresionantes fotografías de otros usuarios. Encuentra inspiración y conecta con otros artistas.</p>
+            <p>💬 Interacción en la Comunidad: Comenta, da like y comparte las fotos que te encantan. Conecta con otros fotógrafos y crea una red de contactos.</p>
+            <p>🔒 Seguridad y Privacidad: Tu trabajo es valioso. picBlue garantiza la protección de tus derechos de autor y la seguridad de tus transacciones.</p>
+            <p>📈 Estadísticas y Análisis: Obtén información detallada sobre tus ventas y el rendimiento de tus fotos. Conoce mejor a tu audiencia y mejora tus estrategias de venta.</p>
+            <p>---</p>
+            <p>¡Únete a picBlue hoy y empieza a compartir tu arte con el mundo! Descarga la versión 1.0 y lleva tu fotografía al siguiente nivel. 📱✨</p>
+          </div>
+          
+        </div>
+        <button id="mostrarP5">Detalles</button>
+        <a href="aplicaciones/picBlue 1.0.zip" download>
+            <button>Descargar para android</button>
+        </a>
+        <a href="https://apps.apple.com/us/app/administrador-de-ficheros/id1664683192?l=es-MX"><button>Descargar archivo IOS</button></a>
+        
+    </div>
+    <div class="card">
+        <img id="image3" src="aplicaciones/img/crea tu web.jpg" alt="Archivo 6">
+        <div class="card-description" id="p6">
+        <h1>Crea tu WEB</h1>
+        <div>
+            <p>🌟 Crea tu Web 1.0 - Diseña tu Propia Página Web Visualmente 🌟</p>
+            <p>Descubre Crea tu Web, la innovadora aplicación de VulkanBlue que te permite crear páginas web de manera fácil e intuitiva. Con Crea tu Web 1.0, puedes diseñar y construir tu propio sitio web sin necesidad de conocimientos de programación. Ideal para emprendedores, pequeñas empresas y cualquier persona que desee tener presencia en línea.</p>
+            <p>Características Principales:</p>
+            <p>🖌️ Editor Visual Intuitivo: Diseña tu página web mediante un editor visual de arrastrar y soltar. Añade elementos, ajusta diseños y personaliza cada detalle sin tocar una sola línea de código.</p>
+            <p>📚 Plantillas Profesionales: Elige entre una variedad de plantillas diseñadas por expertos para diferentes tipos de negocios y propósitos. Personaliza las plantillas para que se adapten a tu estilo y necesidades.</p>
+            <p>🌐 Adaptabilidad Móvil: Todos los sitios web creados con Crea tu Web están optimizados para dispositivos móviles, garantizando una experiencia de usuario perfecta en cualquier dispositivo.</p>
+            <p>🚀 Integración con Redes Sociales: Conecta tus cuentas de redes sociales y agrega botones de compartir para mejorar tu presencia en línea y atraer más visitantes a tu sitio web.</p>
+            <p>🔒 Seguridad y Fiabilidad: La seguridad de tu sitio web es nuestra prioridad. Crea tu Web ofrece hosting seguro y confiable para que te concentres en crear sin preocupaciones.</p>
+            <p>📊 Análisis y Estadísticas: Obtén información detallada sobre el rendimiento de tu sitio web con herramientas de análisis integradas. Mide el tráfico, las visitas y otros datos importantes para optimizar tu presencia en línea.</p>
+            <p>---</p>
+            <p>¡Empieza a crear tu propio sitio web hoy mismo con Crea tu Web 1.0! Únete a la revolución de la creación de sitios web y lleva tu presencia en línea al siguiente nivel. 📱✨</p>
+          </div>
+          
+        </div>
+        <button id="mostrarP6">Detalles</button>
+        <a href="aplicaciones/Crea tu web 1.0.zip" download>
+            <button>Descargar para android</button>
+        </a>
+        <a href="https://apps.apple.com/us/app/administrador-de-ficheros/id1664683192?l=es-MX"><button>Descargar archivo IOS</button></a>
+        
+    </div>
+    <div class="card">
+        <img id="image3" src="aplicaciones/img/vulkanimg.png" alt="Archivo 7">
+        <div class="card-description" id="p7">
+        <h1>VulkanBlue</h1>
+        <div>
+            <div>
+                <p>🌟 VulkanBlue 1.0 - La Solución Informática Multiusos 🌟</p>
+                <p>Presentamos VulkanBlue, la poderosa plataforma informática multiusos de la empresa VulkanBlue. Con la versión 1.0, llevamos tus capacidades tecnológicas al siguiente nivel, ofreciendo una amplia gama de herramientas y soluciones integradas en un solo lugar. Diseñada para profesionales, pequeñas empresas y entusiastas de la tecnología, VulkanBlue es la elección perfecta para optimizar tus operaciones y potenciar tu productividad.</p>
+                <p>Características Principales:</p>
+                <p>💼 Gestión de Proyectos: Administra tus proyectos de manera eficiente con nuestras herramientas intuitivas de planificación, seguimiento y colaboración. Mantén a tu equipo sincronizado y en el camino hacia el éxito.</p>
+                <p>💻 Desarrollo Web: Crea y despliega sitios web impresionantes con facilidad. Nuestra plataforma ofrece un entorno completo para el desarrollo web, con soporte para múltiples lenguajes de programación y marcos.</p>
+                <p>📊 Análisis de Datos: Transforma tus datos en información valiosa. Con nuestras potentes herramientas de análisis, puedes visualizar, interpretar y tomar decisiones basadas en datos concretos.</p>
+                <p>🔒 Seguridad y Protección: La seguridad de tus datos es nuestra prioridad. VulkanBlue ofrece robustas características de seguridad para proteger tu información y garantizar la confidencialidad de tus operaciones.</p>
+                <p>🛠️ Soluciones Personalizadas: Adaptamos nuestras herramientas a tus necesidades específicas. Ya sea que necesites una aplicación personalizada o una solución integrada, VulkanBlue tiene todo lo que necesitas.</p>
+                <p>🌐 Integración de Servicios: Conecta todas tus aplicaciones y servicios en un solo lugar. Nuestra plataforma facilita la integración con una variedad de servicios de terceros, para que puedas centralizar tus operaciones.</p>
+                <p>📧 Soporte Técnico: Obtén asistencia técnica profesional en cualquier momento. Nuestro equipo de soporte está disponible para ayudarte con cualquier duda o problema que puedas tener.</p>
+                <p>---</p>
+                <p>¡Descubre todo lo que VulkanBlue 1.0 puede hacer por ti! Únete a nosotros y lleva tus capacidades informáticas al siguiente nivel. 🌐✨</p>
+              </div>
+                </div>
+          
+        </div>
+        <button id="mostrarP7">Detalles</button>
+        <a href="aplicaciones/VulkanBlue 1.0.zip" download>
+            <button>Descargar para android</button>
+        </a>
+        <a href="https://apps.apple.com/us/app/administrador-de-ficheros/id1664683192?l=es-MX"><button>Descargar archivo IOS</button></a>
+        
+    </div>
+    <!-- Agrega más tarjetas aquí -->
+    </div>
+
+    <button class="scroll-button scroll-right" onclick="scrollRight()">➡️</button>
+
+
+
+
+
+
+
+
+    <script>
+        function downloadImage(imageId) {
+            var img = document.getElementById(imageId);
+            var url = img.src;
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = imageId + '.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+<script>
+    function mostrarOcultar(id) {
+        var elemento = document.getElementById(id);
+        if (elemento.style.display === 'none') {
+            elemento.style.display = 'block';
+        } else {
+            elemento.style.display = 'none';
+        }
+    }
+
+    document.getElementById('mostrarP1').addEventListener('click', function() {
+        mostrarOcultar('p1');
+    });
+
+    document.getElementById('mostrarP2').addEventListener('click', function() {
+        mostrarOcultar('p2');
+    });
+
+    document.getElementById('mostrarP3').addEventListener('click', function() {
+        mostrarOcultar('p3');
+    });
+
+    document.getElementById('mostrarP4').addEventListener('click', function() {
+        mostrarOcultar('p4');
+    });
+
+    document.getElementById('mostrarP5').addEventListener('click', function() {
+        mostrarOcultar('p5');
+    });
+
+    document.getElementById('mostrarP6').addEventListener('click', function() {
+        mostrarOcultar('p6');
+    });
+    document.getElementById('mostrarP7').addEventListener('click', function() {
+        mostrarOcultar('p7');
+    });
+</script>
+</body>
+</html>

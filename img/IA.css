@@ -1,0 +1,40 @@
+ body { font-family: Arial, sans-serif; }
+ .formulario { margin: 20px; }
+  .mensajes { margin: 20px; 
+    padding: 10px;
+     border: 1px solid #eee;
+      background-color: #f1f1f1; 
+    }
+     .mensaje-enviado { margin: 5px 0; }
+    .texto{
+      margin-top: 50%;
+      position: fixed;
+     
+     }
+   .enviar{
+    background-color: blue;
+    font-size: 23px;
+    margin-top: 50.3%;
+    margin-left: 760px;
+    position: fixed;
+    border-radius: 40%;
+   
+   }
+  p{
+    font-size: 30px;
+    background-color: bisque;
+    display: inline-block;
+   border-radius: 30%;
+ 
+  }
+  .radio{
+ 
+
+  }
+ ul{
+  
+  text-align: center;
+  font-size: 30px;
+ }
+.borde{
+}

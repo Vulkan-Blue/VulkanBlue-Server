@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <link rel="icon" href="logo.png" type="image/x-icon" >
+   
+    <style>
+.misHTMLs{
+    position: fixed;
+    background-color: #ddd;
+              top: 300px;
+            right: 0;
+            width: 20%;
+            border: 2px solid black;
+            bottom: 0;
+            overflow: auto; /* Añadir desplazamiento */
+            box-sizing: border-box;
+            
+         
+
+}
+.Lectura {
+            position: fixed;
+            left: 0;
+            width: 20%;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        .centro-de-control {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f9f9f9;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+        .dropdown {
+            margin-right: 20px;
+        }
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px;
+            margin: 0;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .dropdown-content {
+            margin-bottom: 20px;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+      
+        .dropdown-content button:hover {
+            background-color: #ddd;
+        }
+        textarea {
+            width: calc(100% - 220px);
+            height: 100px;
+            padding: 10px;
+            margin-top: 120px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2193b6;
+            padding: 10px 20px;
+        }
+        
+    
+
+
+
+
+      
+      
+    </style>
+</head>
+<body>
+   
+
+
+    <div class="centro_de_control">
+<div class="dropdown">
+    <button class="dropbtn" onclick="mostrarElemento()">Etiquetas HTML<i class="fa fa-tags"></i></button>
+    <div class="dropdown-content" id="dropdown-content">
+        <button onclick="titulo('h1')">Titulo</button>
+        <button onclick="titulo2('h2')">Titulo 2</button>
+        <button onclick="titulo3('h3')">Titulo 3</button>
+        <button onclick="titulo4('h4')">Titulo 4</button>
+        <button onclick="titulo5('h5')">Titulo 5</button>
+        <button onclick="texto('p')">Parrafo<i class="fa fa-paragraph"></i></button> 
+       
+    </div>
+</div>
+
+<textarea name="text" id="text"></textarea>
+
+
+<button onclick="descargarArchivo()">Descargar Párrafo<i class="fa fa-download"></i></button>
+</div>
+
+
+<div id="misHTMLs" id="scrollableDiv"  class="misHTMLs"></div>
+<div id="Lectura" class="Lectura"></div>
+ <script src="descargar_htmls.js"></script>
+ <script src="crear_htmls.js"></script>
+
+<script>
+    var nuevoParrafo = document.createElement('p');
+    let miDiv = document.getElementById('misHTMLs');
+    let lectura = document.getElementById('Lectura');
+    // Añadir texto al nuevo párrafo
+    nuevoParrafo.textContent = "" ;
+    // Asignar un ID al nuevo párrafo
+    nuevoParrafo.id = "miParrafo";
+    
+    // Agregar el nuevo párrafo al body del documento
+    document.body.appendChild(nuevoParrafo);
+    
+    
+    function titulo() {
+        var texto = document.getElementById('text').value;
+          // Crear una nueva etiqueta p
+          var lecusu = document.createElement('h1');
+          lecusu.textContent = texto;
+          var nuevoParrafo = document.createElement('p');
+
+          var etiqueta = "<";
+          var etiqueta1 = "/";
+          var etiqueta2 = "h1";
+          var etiqueta3 = ">";
+          var comienzo = etiqueta + etiqueta2 + etiqueta3;
+          var final = etiqueta + etiqueta1 + etiqueta2 + etiqueta3;
+        
+          // Añadir texto al nuevo párrafo
+          nuevoParrafo.textContent = comienzo + texto + final;
+          
+          // Asignar un ID al nuevo párrafo
+          nuevoParrafo.id = "miParrafo";
+        
+          // Agregar el nuevo párrafo al body del documento
+          miDiv.appendChild(nuevoParrafo);
+          lectura.appendChild(lecusu);
+
+          //borrar textarea
+          texto.addEventListener('input', function() { 
+            if (textarea.value.trim() === '') { etiquetasDiv.innerHTML = ''; 
+
+            } })
+        }
+        function titulo2() {
+        var texto = document.getElementById('text').value;
+          // Crear una nueva etiqueta p
+          var lecusu = document.createElement('h2');
+          lecusu.textContent = texto;
+          var nuevoParrafo = document.createElement('p');
+          var etiqueta = "<";
+          var etiqueta1 = "/";
+          var etiqueta2 = "h2";
+          var etiqueta3 = ">";
+          var comienzo = etiqueta + etiqueta2 + etiqueta3;
+          var final = etiqueta + etiqueta1 + etiqueta2 + etiqueta3;
+        
+          // Añadir texto al nuevo párrafo
+          nuevoParrafo.textContent = comienzo + texto + final;
+          // Asignar un ID al nuevo párrafo
+          nuevoParrafo.id = "miParrafo";
+        
+          // Agregar el nuevo párrafo al body del documento
+          miDiv.appendChild(nuevoParrafo);
+          
+          lectura.appendChild(lecusu);
+        }
+        function titulo3() {
+        var texto = document.getElementById('text').value;
+          // Crear una nueva etiqueta p
+          var lecusu = document.createElement('h3');
+          lecusu.textContent = texto;
+          var nuevoParrafo = document.createElement('p');
+          var etiqueta = "<";
+          var etiqueta1 = "/";
+          var etiqueta2 = "h3";
+          var etiqueta3 = ">";
+          var comienzo = etiqueta + etiqueta2 + etiqueta3;
+          var final = etiqueta + etiqueta1 + etiqueta2 + etiqueta3;
+        
+          // Añadir texto al nuevo párrafo
+          nuevoParrafo.textContent = comienzo + texto + final;
+          // Asignar un ID al nuevo párrafo
+          nuevoParrafo.id = "miParrafo";
+        
+          // Agregar el nuevo párrafo al body del documento
+          miDiv.appendChild(nuevoParrafo);
+          lectura.appendChild(lecusu);
+        }
+        function titulo4() {
+        var texto = document.getElementById('text').value;
+          // Crear una nueva etiqueta p
+          var lecusu = document.createElement('h4');
+          lecusu.textContent = texto;
+          var nuevoParrafo = document.createElement('p');
+          var etiqueta = "<";
+          var etiqueta1 = "/";
+          var etiqueta2 = "h4";
+          var etiqueta3 = ">";
+          var comienzo = etiqueta + etiqueta2 + etiqueta3;
+          var final = etiqueta + etiqueta1 + etiqueta2 + etiqueta3;
+        
+          // Añadir texto al nuevo párrafo
+          nuevoParrafo.textContent = comienzo + texto + final;
+          // Asignar un ID al nuevo párrafo
+          nuevoParrafo.id = "miParrafo";
+        
+          // Agregar el nuevo párrafo al body del documento
+          miDiv.appendChild(nuevoParrafo);
+          lectura.appendChild(lecusu);
+        }
+        function titulo5() {
+        var texto = document.getElementById('text').value;
+          // Crear una nueva etiqueta p
+          var lecusu = document.createElement('h5');
+          lecusu.textContent = texto;
+          var nuevoParrafo = document.createElement('p');
+          var etiqueta = "<";
+          var etiqueta1 = "/";
+          var etiqueta2 = "h5";
+          var etiqueta3 = ">";
+          var comienzo = etiqueta + etiqueta2 + etiqueta3;
+          var final = etiqueta + etiqueta1 + etiqueta2 + etiqueta3;
+        
+          // Añadir texto al nuevo párrafo
+          nuevoParrafo.textContent = comienzo + texto + final;
+          // Asignar un ID al nuevo párrafo
+          nuevoParrafo.id = "miParrafo";
+        
+          // Agregar el nuevo párrafo al body del documento
+          miDiv.appendChild(nuevoParrafo);
+          lectura.appendChild(lecusu);
+        }
+        function texto() {
+        var texto = document.getElementById('text').value;
+          // Crear una nueva etiqueta p
+          var lecusu = document.createElement('p');
+          lecusu.textContent = texto;
+          var nuevoParrafo = document.createElement('p');
+          var etiqueta = "<";
+          var etiqueta1 = "/";
+          var etiqueta2 = "p";
+          var etiqueta3 = ">";
+          var comienzo = etiqueta + etiqueta2 + etiqueta3;
+          var final = etiqueta + etiqueta1 + etiqueta2 + etiqueta3;
+        
+          // Añadir texto al nuevo párrafo
+          nuevoParrafo.textContent = comienzo + texto + final;
+          // Asignar un ID al nuevo párrafo
+          nuevoParrafo.id = "miParrafo";
+        
+          // Agregar el nuevo párrafo al body del documento
+          miDiv.appendChild(nuevoParrafo);
+          lectura.appendChild(lecusu);
+        }
+      
+        
+        function mostrarElemento() {
+             let dropdownContent = document.getElementById('dropdown-content');
+              if (dropdownContent.classList.contains('oculto')) {
+                 dropdownContent.classList.remove('oculto'); 
+                 dropdownContent.style.display = 'block';            
+            } 
+            else { dropdownContent.classList.add('oculto');
+         dropdownContent.style.display = 'none'; } }
+        
+</script>
+
+<script>
+    let scrollableDiv = document.getElementById('scrollableDiv');
+    let paragraphs = scrollableDiv.getElementsByTagName('p');
+
+    for (let i = 0; i < paragraphs.length; i++) {
+        paragraphs[i].style.fontSize = '16px'; // Tamaño inicial del texto
+    }
+
+    scrollableDiv.addEventListener('scroll', function() {
+        let scrollHeight = scrollableDiv.scrollHeight;
+        let scrollTop = scrollableDiv.scrollTop;
+        let clientHeight = scrollableDiv.clientHeight;
+
+        if (scrollTop + clientHeight >= scrollHeight) {
+            paragraphs.forEach(p => p.style.fontSize = '14px'); // Reducir el tamaño del texto
+        } else {
+            paragraphs.forEach(p => p.style.fontSize = '16px'); // Restaurar el tamaño del texto
+        }
+    });
+</script>
+</body>
+</html>
+
