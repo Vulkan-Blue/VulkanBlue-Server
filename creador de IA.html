@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA creador</title>
+ 
+    <style>
+      #container {
+          display: flex;
+          height: 50%;
+      }
+      #pagina_legible, #codigo {
+          flex: 1;
+          overflow: auto;
+          border: 1px solid black;
+      }
+      #textareas {
+          display: flex;
+          justify-content: space-between;
+          padding: 10px;
+      }
+      textarea {
+          flex: 1;
+          margin: 5px;
+      }
+      #buttonContainer {
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+      }
+     .titulo{
+      margin-right: 10px;
+     }
+     #fijo{
+     
+      position: fixed;
+      background-color: rgb(199, 199, 199);
+            top: 500px;
+            
+     }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    
+   <div id="pagina_legible">________________________________________________________________</div>
+  <div id="codigo">
+    <div id="comienzo"></div> 
+  </div>
+
+</div>
+
+ <div id="fijo">
+  <div id="container">
+    
+   <p>Pregunta Cabecera</p>
+ <textarea name="textarea" id="cabecera"></textarea>
+ <p>Pregunta secundaria</p>
+ <textarea name="textarea1" id="secundaria"></textarea>
+ <p>Pregunta tercearia</p>
+ <textarea name="textarea2" id="tercearia"></textarea>
+ <p>Pregunta extra</p>
+ <textarea name="textarea3" id="extra"></textarea>
+ </div>
+ <p>Respuesta</p>
+ <textarea name="textarea4" id="respuesta"></textarea>
+ <button onclick="contenido()" >contenido</button>
+ <button onclick="descargarContenido()">Descargar Contenido</button>
+ <button onclick="crearIA()">Crear Inteligencia Artificial</button>
+
+</div>
+
+
+
+
+    <script >
+      
+        
+      var cuadro = document.getElementById('pagina_legible');
+      var codigo = document.getElementById('codigo');
+      
+    var toque = 0;
+    
+
+    function contenido(){
+  //guia
+        toque = toque + 1;
+        var p1 = document.createElement("p");
+       p1.textContent = '//'+toque;
+        cuadro.appendChild(p1);
+        var p1 = document.createElement("p");
+       p1.textContent = '//' + toque;
+        codigo.appendChild(p1);
+
+      //cabecera
+      var cabecera = document.getElementById('cabecera').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "cabecera =" + cabecera;
+    cuadro.appendChild(p1);
+
+    //cabecerqa codigo:
+   
+    var p2 = document.createElement("p");
+    p2.textContent = "if(texto.includes("+'"' +cabecera + '"' + ")){";
+    codigo.appendChild(p2);
+
+    
+    //secundaria
+    var cabecera = document.getElementById('secundaria').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "secundaria =" + cabecera;
+    cuadro.appendChild(p1);
+
+    //secundaria codigo 
+    var p2 = document.createElement("p");
+    p2.textContent = 'if(texto.includes("'+cabecera+'")){';
+    codigo.appendChild(p2);
+
+    //tercearia
+    var cabecera = document.getElementById('tercearia').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "tercearia =" + cabecera;
+    cuadro.appendChild(p1);
+
+     //tercearia codigo 
+     var p2 = document.createElement("p");
+    p2.textContent = 'if(texto.includes("'+cabecera+'")){';
+    codigo.appendChild(p2);
+
+    //extra
+    var cabecera = document.getElementById('extra').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "extra =" + cabecera;
+    cuadro.appendChild(p1);
+
+
+    // codigo extra 
+    var respuesta = document.getElementById('respuesta').value;
+    var p0 = document.createElement("p");
+    p0.textContent = 'if(texto.includes("'+cabecera+'")){';
+
+        var p1 = document.createElement("p");
+    p1.textContent = 'var nuevoParrafo = document.createElement("p");';
+    var p2 = document.createElement("p");
+    p2.textContent = 'nuevoParrafo.innerHTML = sumando_2;';
+    var p3 = document.createElement("p");
+    p3.textContent = 'var contenedor = document.getElementById("contenedor"); ';
+    var p4 = document.createElement("p");
+    p4.textContent = 'contenedor.appendChild(nuevoParrafo);';
+    var p5 = document.createElement("p");
+    p5.textContent = 'parrafo.textContent ="' + respuesta + '" }}}}';
+
+    codigo.appendChild(p0);
+    codigo.appendChild(p1);
+    codigo.appendChild(p2);
+    codigo.appendChild(p3);
+    codigo.appendChild(p4);
+    codigo.appendChild(p5);
+    var p5 = document.createElement("p");
+    p5.textContent = 'respuesta ='+ respuesta;
+    cuadro.appendChild(p5);
+// limite
+    var p1 = document.createElement("p");
+    p1.textContent ='//'+ "________________________________________________________________";
+    cuadro.appendChild(p1);
+
+  }
+
+
+    </script>
+
+
+
+
+
+
+
+
+<script>
+ 
+  function descargarContenido() {
+
+
+
+  
+   
+
+      var contenido = document.getElementById("codigo").innerText;
+      var blob = new Blob([contenido], { type: "text/plain;charset=utf-8" });
+      var enlace = document.createElement("a");
+      enlace.href = URL.createObjectURL(blob);
+      enlace.download = "contenido.txt";
+      enlace.click();
+      
+      // Crear las etiquetas <p>
+      var comienzo = document.getElementById("comienzo");
+      comienzo.innerText = "comienzo";
+
+      var final = document.getElementById("final");
+      final.innerText = "final";
+  }
+</script>
+<script>
+  function crearIA(){
+    //final
+var final = document.getElementById('final');
+var p1 = document.createElement("p");
+p1.textContent = 'var contenedor = document.getElementById("contenedor"); contenedor.appendChild(parrafo); }';
+final.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '</scrip>';
+final.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '</body>';
+final.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '</html>';
+final.appendChild(p1);
+  }
+</script>
+
+<script>
+ function crearIA() {
+  var comienzo = document.getElementById('comienzo');
+  var atras = document.getElementById('atras');
+
+
+
+  var p1 = document.createElement("p");
+p1.textContent = '<!DOCTYPE html>';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '<html lang="en">';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '<head>';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '<meta charset="UTF-8">';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = ' <meta name="viewport" content="width=device-width, initial-scale=1.0">';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '    <title>Document</title>';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '    <style> .mensaje ';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '    { border: 1px solid #ccc;';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '         padding: 10px;';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '     margin: 20px;';
+comienzo.appendChild(p1);
+
+var p1 = document.createElement("p");
+p1.textContent = '          background-color: #f9f9f9; }}';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '  div.formulario { margin: 20px;} .mensaje-enviado {margin: 5px 0;}';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = ' </style>';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '</head>';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '<div class="borde">';
+  comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '  <p id="nuevo">prueba</p>';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '<div id="contenedor">';
+  comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '        <textarea name="text" id="textear" cols="100%" class="texto"></textarea>';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '    <button class="enviar" onclick="editText()">&#8593</button>';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '   </div>';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '    </div>';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = 'function editText(){';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '    var texto = document.getElementById("textear").value; var parrafo = document.createElement("ul"); sumando_2 = texto;sumando_1 =  sumando_2;   parrafo.innerHTML = (sumando_1);';
+comienzo.appendChild(p1);
+var p1 = document.createElement("p");
+p1.textContent = '<scrip>';
+comienzo.appendChild(p1);
+
+var p1 = document.createElement("p");
+p1.textContent = 'marca';
+atras.appendChild(p1);
+
+
+
+
+
+
+
+
+
+
+/*
+
+//guardado
+var contenido = document.getElementById("codigo").innerText;
+var blob = new Blob([contenido], { type: "text/plain;charset=utf-8" });
+var enlace = document.createElement("a");
+enlace.href = URL.createObjectURL(blob);
+enlace.download = "contenido.txt";
+enlace.click();
+
+*/
+
+}
+</script>
+</body>
+</html>

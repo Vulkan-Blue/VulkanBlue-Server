@@ -3,13 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VulkanStore
-        
-    </title>
-    
+    <title>VulkanStore</title>
     <style>
+        .botonmiossegurop{
+            position: fixed;
+            top: 50px;
+            background-color: black;
+            height: 25px;
+        }
         body {
             font-family: Arial, sans-serif;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .full-screen {
+            width: 100% !important;
+            height: 9000% !important;
+            background-color: white;
+            position: absolute;
+            top: 0px;
+            right: -10px;
+            z-index: 200;
+        }
+
+        .full-screen .content {
+            display: block;
         }
 
         header {
@@ -38,8 +59,8 @@
             display: block;
             width: 100%;
             height: auto;
-           
         }
+
         .scroll-button {
             position: fixed;
             top: 50%;
@@ -49,17 +70,13 @@
             padding: 10px;
             cursor: pointer;
         }
+
         .scroll-left {
             left: 0;
         }
+
         .scroll-right {
             right: 0;
-        }
-        .card-description {
-            display: none;
-            padding: 15px;
-            font-size: 0.9em;
-            
         }
 
         .card a {
@@ -76,7 +93,11 @@
         }
 
         .card button:hover {
-            background-color: #005f73;            
+            background-color: #005f73;
+        }
+
+        .juegos, .aplicaciones {
+            display: none;
         }
 
         @media (max-width: 600px) {
@@ -87,202 +108,587 @@
             .card-description {
                 font-size: 0.8em;
             }
+            body{
+                font-size: 10px;
+
+            }
+        }
+
+        .card {
+            flex: 0 0 auto;
+            margin-right: 10px;
+        }
+
+        .gratis, .jgratis, .jpagos, .jextreno, .jdesarrollo, .jcartas, .jrol, .jsimulacion, .jingenio, .jmini_juegos, .jsuper_juegos, .gratis, .pagos, .Extrenos, .Proximamente, .videos, .fotos, .audio, .ejercicios, .Salud, .tareas {
+            display: flex;
+            max-height: 5000px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        #image3, #image4, #image5 {
+            width: 305px;
+            height: 400px;
         }
     </style>
 </head>
 <body>
-    <header>VulkanStore</header>
+    <header id="seccion1">VulkanStore</header>
+
+    <div class="Secciones">
+        <div class="juegos" id="juegos">
+            <h2>Gratis</h2>
+            <div class="jgratis">
+
+            </div>
+            <h2>Pagos</h2>
+            <div class="jpagos"></div>
+            <h2>Extrenos</h2>
+            <div class="jextreno"></div>
+            <h2>En desarrollo</h2>
+            <div class="jdesarrollo"></div>
+            <h2>Mesa/Estrategia</h2>
+            <div class="jcartas">
+                <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>Unciv</h1>
+    <img id="image4" src="aplicaciones/img/unciv.png" alt="Unciv">
+    <div class="" id="p4">
+        <div class="content">
+            <p>🌍 <strong>Unciv</strong> - ¡Construye tu civilización en este juego de estrategia por turnos! 🏛️</p>
+            <p>🛠️ **Unciv** es una recreación de código abierto del popular juego de construcción de civilizaciones. 🏙️ Desarrolla tu imperio, investiga tecnologías, expande tus ciudades y enfrenta a tus adversarios en batallas épicas. ¡La historia está en tus manos! 📜</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> Yair Morgenstern</p>
+            <p>📅 <strong>Última versión:</strong> 4.15.2 (17 de enero de 2025)</p>
+            <p>🛠️ <strong>Género:</strong> Estrategia por turnos</p>
+            <p>📂 <strong>Categoría:</strong> Juegos</p>
+            <p>💻 <strong>Código base:</strong> Unciv es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/yairm210/Unciv" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> GPL-3.0. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. 📝</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia. 📜</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=com.unciv.app" target="_blank">Google Play Store</a> 📥</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)"><a href="#">V</a>er</button>
+    <a href="aplicaciones/com.unciv.app_1093.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+            </div>
+            <h2>Rol</h2>
+            <div class="jrol"></div>
+            <h2>Simulación</h2>
+            <div class="jsimulacion"></div>
+            <h2>Intelecto</h2>
+            <div class="jingenio">
+                <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>Libre Memory Game</h1>
+    <img id="image4" src="aplicaciones/img/LMG.png" alt="Libre Memory Game">
+    <div class="" id="p4">
+        <div class="content">
+            <p>🧠 <strong>Libre Memory Game</strong> - ¡Pon a prueba tu memoria con este divertido juego de cartas! 🎮</p>
+            <p>🔍 **Libre Memory Game** es un juego clásico de memoria donde debes emparejar cartas similares. 🃏 Es perfecto para ejercitar tu memoria visual de una manera entretenida. ¡Cuanto más juegas, más fácil será recordar! 📚</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> No especificado en la información disponible 📜</p>
+            <p>📅 <strong>Última versión:</strong> No disponible (consulta F-Droid para detalles) 📅</p>
+            <p>🛠️ <strong>Género:</strong> Juegos 🎮</p>
+            <p>📂 <strong>Categoría:</strong> Puzzles 🧩</p>
+            <p>💻 <strong>Código base:</strong> Libre Memory Game es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/libre-memory-game" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> GPL-3.0. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. 📝</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia. 📜</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://f-droid.org/packages/com.libre.memorygame/" target="_blank">F-Droid</a> 📥</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones//org.quentin_bettoum.librememorygame_8.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+            </div>
+            <h2>Mini juegos/juegos pequeños</h2>
+            <div class="jmini_juegos"></div>
+            <h2>Alto entretenimiento</h2>
+            <div class="jsuper_juegos"></div>
+        </div>
+    </div>
+
+    <div class="Aplicaciones" id="aplicaciones">
+     <!--   <h2>Gratis</h2>-->
+        <div class="gratis"></div>
+       <!-- <h2>Pagos</h2>-->
+        <div class="pagos"></div>
+        <h2>Extrenos</h2>
+        <div class="Extrenos">
+            <!--comienzo de aplicacion-->
+
+            <div id="card" class="card">
+                <h1>vulkanStore</h1>
+                    <img id="image4" src="aplicaciones/img/vulkanStore.png" alt="Archivo 4">
+                    <div class="" id="p4">
+                <div class="content">
+                  
+                    
+                    <h1>**vulkanStore**</h1>
+                   
+                    <div>
+                        <p>🌟 VulkanStore 1.0 - Tu Tienda de Aplicaciones Definitiva 🌟</p>
+                        <p>¡Bienvenido a VulkanStore, la tienda de aplicaciones oficial de VulkanBlue! Con la versión 1.0, traemos una selección cuidadosamente curada de las mejores aplicaciones para tu dispositivo. Diseñada para facilitarte el acceso a las aplicaciones más innovadoras, útiles y entretenidas, VulkanStore es tu destino único para todas tus necesidades de software.</p>
+                        <p>Características Principales:</p>
+                        <p>📱 Descubre Nuevas Aplicaciones: Explora una amplia variedad de categorías y encuentra aplicaciones que se adapten a tus intereses y necesidades. Desde productividad hasta entretenimiento, tenemos todo lo que buscas.</p>
+                        <p>🛒 Compras Seguras y Confiables: Realiza tus compras con total tranquilidad. VulkanStore garantiza la seguridad y protección de tus transacciones y datos personales.</p>
+                        <p>🔥 Tendencias y Recomendaciones: Mantente al día con las aplicaciones más populares y las novedades del mercado. Recibe recomendaciones personalizadas basadas en tus preferencias y hábitos de uso.</p>
+                        <p>⭐ Valoraciones y Reseñas: Lee opiniones de otros usuarios y deja tus propias valoraciones para ayudar a la comunidad a encontrar las mejores aplicaciones.</p>
+                        <p>🔔 Actualizaciones Automáticas: Mantén tus aplicaciones al día con las últimas características y mejoras. VulkanStore te notifica automáticamente sobre actualizaciones disponibles.</p>
+                        <p>💬 Soporte Técnico: ¿Tienes alguna duda o problema? Nuestro equipo de soporte está siempre disponible para asistirte y resolver cualquier inconveniente que puedas tener.</p>
+                        <p>🔍 Búsqueda Avanzada: Encuentra rápidamente lo que necesitas con nuestra herramienta de búsqueda avanzada. Filtra los resultados por categoría, popularidad, calificación y más.</p>
+                        <p>🌐 Interfaz Intuitiva: Disfruta de una experiencia de usuario fluida y amigable con una interfaz intuitiva y fácil de navegar.</p>
+                        <p>---</p>
+                        <p>¡Descubre un mundo de posibilidades con VulkanStore 1.0! Únete a la comunidad de VulkanBlue y accede a las mejores aplicaciones para tu dispositivo. 📱✨</p>
+                      </div>
+                      
+                  </div>
+                    </div></p>
+                    <button onclick="toggleFullScreen(this)">Ver</button>
+            
+                   
+                      <a href="aplicaciones/VulkanStore 1.11.zip" download>
+                          <button>Descargar para android</button>
+                      </a>
+                      <a href="https://apps.apple.com/us/app/administrador-de-ficheros/id1664683192?l=es-MX"><button>Descargar archivo IOS</button></a>
+                      
+                </div>
+                <!--fin de aplicacion-->
+        </div>
+        <h2>Proximamente</h2>
+        <div class="Proximamente">
+              <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>picBlues</h1>
+    <img id="image4" src="aplicaciones/img/crea tu web 1.1.png" alt="Delta Chat">
+    <div class="" id="p4">
+        <div class="content">
+            <p>🖥️ <strong>Creata tu Web</strong> - ¡La herramienta visual que te permite crear tu sitio web sin complicaciones! 🚀</p>
+            <p>🎨 Con Creata tu Web, puedes diseñar páginas web profesionales mediante un entorno visual interactivo. Arrastra y suelta elementos como textos, imágenes y botones para construir tu sitio sin escribir una sola línea de código. Ideal para emprendedores, diseñadores y cualquier persona que quiera tener presencia en línea sin ser experto en programación. 🌟</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> WebCreations</p>
+            <p>📅 <strong>Última versión:</strong> 1.5.2 (20 de enero de 2025)</p>
+            <p>🛠️ <strong>Género:</strong> Herramientas de desarrollo web</p>
+            <p>📂 <strong>Categoría:</strong> Creación de páginas web</p>
+            <p>💻 <strong>Código base:</strong> CreateMyWeb es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/webcreations/createmyweb" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> MIT License. Esto significa que puedes usar, modificar y distribuir la aplicación bajo los términos establecidos por la licencia. 📜</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia.</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=com.webcreations.createmyweb" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/com.webcreations.createmyweb/" target="_blank">F-Droid</a>.</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)"> Ver </button>
     
-    <div class="container">
-        <div class="card">
-            <img id="image1" src="  " alt="Archivo 1">
-            <div class="card-description" id="p1">
-               <h1>Politopya:</h1> 
-               <p>Politopya es un juego de simulación política y estratégica.</p>
-               <p>Los jugadores pueden crear y gestionar su propio país virtual.</p>
-               <p>El objetivo principal es tomar decisiones que afecten el desarrollo y estabilidad del país.</p>
-               <p>Los jugadores gestionan recursos como el dinero, la población y la política exterior.</p>
-               <p>Politopya ofrece un entorno competitivo en el que los jugadores interactúan entre sí a través de elecciones y tratados internacionales.</p>
-               <p>El juego pone a prueba las habilidades estratégicas y diplomáticas de los jugadores.</p>
-               <p>Los jugadores deben lidiar con crisis económicas, guerras y conflictos sociales.</p>
-               <p>El avance en Politopya depende de las decisiones tomadas en la política interna y en la relación con otros países.</p>
-               <p>Es un juego de tipo multijugador masivo, donde las decisiones de los jugadores afectan directamente al entorno del juego.</p>
-               <p>Politopya permite a los jugadores experimentar los desafíos del liderazgo en un mundo virtual.</p>
-
-            </div>
-            <button id="mostrarP1">Detalles</button>
-            <a href="aplicaciones/Polytopia_2.11.0.13185_apkcombo.app.apk" download>
-                <button>Descargar androide</button>
-            </a>
-            <a href="https://apps.apple.com/us/app/the-battle-of-polytopia/id1006393168?l=es-MX"><button>Descargar archivo IOS</button></a>
+    <a href="aplicaciones/Crea tu web 1.1.zip" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+              <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>picBlues</h1>
+    <img id="image4" src="aplicaciones/img/picblues.jpg" alt="Delta Chat">
+    <div class="" id="p4">
+        <div class="content">
+            <p>🖼️ <strong>picBlues</strong> - ¡La app definitiva para adquirir fotos de alta calidad para todos tus proyectos! 🌟</p>
+            <p>💡 Con picBlues, podrás acceder a una amplia galería de imágenes premium para usar en publicidad, sitios web, redes sociales y mucho más. Encuentra fotos profesionales en alta resolución para dar ese toque especial a tu contenido visual. 🖥️</p>
+            <p>👨‍💼 <strong>Desarrollador:</strong> Digital Creations</p>
+            <p>📅 <strong>Última versión:</strong> 2.1.0 (15 de enero de 2025)</p>
+            <p>🛠️ <strong>Género:</strong> Compras y fotografía</p>
+            <p>📂 <strong>Categoría:</strong> Mercado de imágenes</p>
+            <p>💻 <strong>Código base:</strong> PhotoMarket es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/digital-creations/photomarket" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> Creative Commons Attribution License. Esto significa que puedes usar las imágenes compradas de acuerdo con los términos establecidos por la licencia. 📜</p>
+            <p>⚠️ <strong>Nota:</strong> Al adquirir y usar las fotos, asegúrate de respetar los derechos de autor y dar crédito según se indique en los términos de uso de cada imagen.</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=com.digitalcreations.photomarket" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/com.digitalcreations.photomarket/" target="_blank">F-Droid</a>.</p>
+         </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/picBlue 1.1.zip" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
         </div>
-
-
-
-        <div class="card">
-            <img id="image2" src="  " alt="Archivo 2">
-            <div class="card-description" id="p2">
-               <h1>Win Rar</h1>
-               <p>WinRAR es un programa de compresión de archivos ampliamente utilizado.</p>
-<p>Permite comprimir archivos y carpetas en varios formatos, principalmente en RAR y ZIP.</p>
-<p>Con WinRAR, los usuarios pueden reducir el tamaño de los archivos, lo que facilita su almacenamiento y envío.</p>
-<p>El software también permite la creación de archivos autoextraíbles (SFX), que se descomprimen sin necesidad de tener WinRAR instalado.</p>
-<p>WinRAR soporta la creación de archivos multivolumen, lo que facilita la división de archivos grandes en partes más pequeñas.</p>
-<p>El programa es compatible con muchos otros formatos de archivo, como 7z, TAR, GZ, y más.</p>
-<p>WinRAR tiene una interfaz de usuario intuitiva, fácil de usar incluso para principiantes.</p>
-<p>Los usuarios pueden cifrar sus archivos comprimidos con una contraseña, ofreciendo mayor seguridad para los datos sensibles.</p>
-<p>Además de la compresión, WinRAR también permite la reparación de archivos RAR dañados, si es necesario.</p>
-<p>La aplicación tiene una función de administración de aplicaciones, permitiendo ver, desinstalar o mover aplicaciones en el dispositivo.</p>
-<p>File Manager ofrece una experiencia fluida y fácil de usar, con opciones avanzadas para usuarios que necesitan organizar grandes cantidades de archivos.</p>
-            </div>
-            <button id="mostrarP2">Mostrar P1</button>
-            <a href="aplicaciones/RAR_2020.03.31_apkcombo.app.apk" download>
-                <button>Descargar android</button>
-            </a>
-            <a href="https://apps.apple.com/us/app/irar-descomprimir-archivos/id989212129?l=es-MX"><button>Descargar archivo IOS</button></a>
-            
+        <h2>Utilidades</h2>
+        <div class="videos">
+            <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>Les Pas</h1>
+    <img id="image4" src="aplicaciones/img/Les Pas.png" alt="Les Pas">
+    <div class="" id="p4">
+        <div class="content">
+            <p>🚶‍♂️ <strong>Les Pas</strong> - ¡Sigue tus pasos y mejora tu salud! 🏃‍♀️</p>
+            <p>📊 Les Pas es una aplicación diseñada para ayudarte a seguir tu actividad física diaria, enfocándose principalmente en el seguimiento de pasos, calorías y distancia recorrida. ¡Perfecta para los entusiastas del ejercicio y quienes desean mejorar su bienestar físico! 💪</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> Julien Beaulieu</p>
+            <p>📅 <strong>Última versión:</strong> 1.0.0 (15 de enero de 2024)</p>
+            <p>🛠️ <strong>Género:</strong> Salud & Fitness</p>
+            <p>📂 <strong>Categoría:</strong> Seguimiento de Actividad</p>
+            <p>💻 <strong>Código base:</strong> Les Pas es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/julienbeaulieu/les-pas" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> GPL-3.0 License. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. 📜</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia. 📚</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=com.julienbeaulieu.lespas" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/com.julienbeaulieu.lespas/" target="_blank">F-Droid</a>. 📥</p>
         </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/site.leos.apps.lespas_99.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
 
-        <div class="card">
-            <img id="image3" src="   " alt="Archivo 3">
-            <div class="card-description" id="p3">
-            <h1>File Manager</h1>
-            <p>File Manager es una aplicación diseñada para gestionar los archivos en dispositivos móviles y tabletas.</p>
-<p>Permite a los usuarios explorar, organizar y administrar sus archivos y carpetas de manera eficiente.</p>
-<p>Con File Manager, puedes mover, copiar, pegar, eliminar y renombrar archivos fácilmente desde una interfaz intuitiva.</p>
-<p>La aplicación es compatible con una amplia gama de formatos de archivo, incluyendo documentos, imágenes, videos, y archivos comprimidos.</p>
-<p>File Manager ofrece la capacidad de acceder a archivos en almacenamiento local, tarjetas SD y servicios en la nube como Google Drive, Dropbox, y OneDrive.</p>
-<p>Los usuarios pueden buscar archivos de manera rápida utilizando la función de búsqueda incorporada.</p>
-<p>File Manager permite la visualización previa de muchos tipos de archivos, como imágenes, documentos PDF y archivos de texto.</p>
-<p>También soporta la gestión de archivos comprimidos, permitiendo descomprimir y extraer archivos ZIP, RAR, y otros formatos.</p>
-
-            </div>
-            <button id="mostrarP3">Mostrar P1</button>
-            <a href="aplicaciones/File Manager_3.4.9_apkcombo.app.apk" download>
-                <button>Descargar android</button>
-            </a>
-            <a href="https://apps.apple.com/us/app/administrador-de-ficheros/id1664683192?l=es-MX"><button>Descargar archivo IOS</button></a>
-            
+            <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>Fossify Paint</h1>
+    <img id="image4" src="aplicaciones/img/fosifi.png" alt="Fossify Paint">
+    <div class="" id="p4">
+        <div class="content">
+            <p>🎨 <strong>Fossify Paint</strong> - ¡Dibuja y pinta con estilo! 🖌️</p>
+            <p>🖥️ Fossify Paint es una aplicación para crear arte digital de manera sencilla, ideal para dibujar y pintar desde tu dispositivo Android. Con una interfaz simple y herramientas eficientes, permite explorar la creatividad sin complicaciones. 🖍️</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> Fossify</p>
+            <p>📅 <strong>Última versión:</strong> 1.0.2 (12 de agosto de 2024)</p>
+            <p>🛠️ <strong>Género:</strong> Herramientas</p>
+            <p>📂 <strong>Categoría:</strong> Arte y Diseño</p>
+            <p>💻 <strong>Código base:</strong> Fossify Paint es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/fossify/paint" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> GNU General Public License v3.0. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. 📜</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia. 📚</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=com.fossify.paint" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/com.fossify.paint/" target="_blank">F-Droid</a>. 📥</p>
         </div>
-     
-    <div class="card">
-        <img id="image4" src="aplicaciones/img/vulkanStore.png" alt="Archivo 4">
-        <div class="card-description" id="p4">
-        <h1>**vulkanStore**</h1>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/org.fossify.paint_1.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+            <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>PicGuard</h1>
+    <img id="image4" src="aplicaciones/img/picguard.png" alt="PicGuard">
+    <div class="" id="p4">
+        <div class="content">
+            <p>🔒 <strong>PicGuard</strong> - ¡Protege tus fotos y videos con seguridad avanzada! 🛡️</p>
+            <p>🖼️ **PicGuard** es una aplicación diseñada para proteger y encriptar tus fotos y videos, asegurando que solo tú tengas acceso a ellos. Utiliza cifrado de alta calidad para mantener tu privacidad intacta y evita el acceso no autorizado. 🔐</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> PicGuard Team</p>
+            <p>📅 <strong>Última versión:</strong> 3.0.0 (20 de enero de 2025)</p>
+            <p>🛠️ <strong>Género:</strong> Herramientas</p>
+            <p>📂 <strong>Categoría:</strong> Seguridad</p>
+            <p>💻 <strong>Código base:</strong> PicGuard es una aplicación propietaria y no está disponible como código abierto. 🔒</p>
+            <p>⚖️ <strong>Licencia:</strong> Licencia propietaria. El uso de la aplicación está sujeto a los términos y condiciones establecidos por PicGuard Team. 📝</p>
+            <p>⚠️ <strong>Nota:</strong> Al utilizar esta aplicación, aceptas los términos de servicio y la política de privacidad de PicGuard. 📜</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=com.picguard.android" target="_blank">Google Play Store</a> 📥</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/com.kjxbyz.picguard_436.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+<!--comienzo de aplicacion-->
+
+<div id="card" class="card">
+    <h1>Network Survey</h1>
+        <img id="image4" src="aplicaciones/img/network-survey.png" alt="Archivo 4">
+        <div class="" id="p4">
+    <div class="content">
+      
+        
        
         <div>
-            <p>🌟 VulkanStore 1.0 - Tu Tienda de Aplicaciones Definitiva 🌟</p>
-            <p>¡Bienvenido a VulkanStore, la tienda de aplicaciones oficial de VulkanBlue! Con la versión 1.0, traemos una selección cuidadosamente curada de las mejores aplicaciones para tu dispositivo. Diseñada para facilitarte el acceso a las aplicaciones más innovadoras, útiles y entretenidas, VulkanStore es tu destino único para todas tus necesidades de software.</p>
-            <p>Características Principales:</p>
-            <p>📱 Descubre Nuevas Aplicaciones: Explora una amplia variedad de categorías y encuentra aplicaciones que se adapten a tus intereses y necesidades. Desde productividad hasta entretenimiento, tenemos todo lo que buscas.</p>
-            <p>🛒 Compras Seguras y Confiables: Realiza tus compras con total tranquilidad. VulkanStore garantiza la seguridad y protección de tus transacciones y datos personales.</p>
-            <p>🔥 Tendencias y Recomendaciones: Mantente al día con las aplicaciones más populares y las novedades del mercado. Recibe recomendaciones personalizadas basadas en tus preferencias y hábitos de uso.</p>
-            <p>⭐ Valoraciones y Reseñas: Lee opiniones de otros usuarios y deja tus propias valoraciones para ayudar a la comunidad a encontrar las mejores aplicaciones.</p>
-            <p>🔔 Actualizaciones Automáticas: Mantén tus aplicaciones al día con las últimas características y mejoras. VulkanStore te notifica automáticamente sobre actualizaciones disponibles.</p>
-            <p>💬 Soporte Técnico: ¿Tienes alguna duda o problema? Nuestro equipo de soporte está siempre disponible para asistirte y resolver cualquier inconveniente que puedas tener.</p>
-            <p>🔍 Búsqueda Avanzada: Encuentra rápidamente lo que necesitas con nuestra herramienta de búsqueda avanzada. Filtra los resultados por categoría, popularidad, calificación y más.</p>
-            <p>🌐 Interfaz Intuitiva: Disfruta de una experiencia de usuario fluida y amigable con una interfaz intuitiva y fácil de navegar.</p>
-            <p>---</p>
-            <p>¡Descubre un mundo de posibilidades con VulkanStore 1.0! Únete a la comunidad de VulkanBlue y accede a las mejores aplicaciones para tu dispositivo. 📱✨</p>
-          </div>
-          
-        </div>
-        <button id="mostrarP4">Detalles</button>
-        <a href="aplicaciones/VulkanStore 1.11.zip" download>
-            <button>Descargar para android</button>
-        </a>
-        <a href="https://apps.apple.com/us/app/administrador-de-ficheros/id1664683192?l=es-MX"><button>Descargar archivo IOS</button></a>
-        
-    </div>
-    <div class="card">
-        <img id="image5" src="aplicaciones/img/picblues.jpg" alt="Archivo 5">
-        <div class="card-description" id="p5">
-        <h1>picBlue</h1>
-        <div>
-            <p>🌟 picBlue 1.0 - Tu Plataforma para Compartir y Vender Fotos 🌟</p>
-            <p>¡Bienvenido a picBlue, la innovadora aplicación móvil de VulkanBlue diseñada para fotógrafos y amantes de la fotografía! Con picBlue, subir, compartir y vender tus fotos nunca ha sido tan fácil y divertido. Ya seas un profesional o un aficionado, picBlue te ofrece todas las herramientas necesarias para sacar el máximo provecho de tu talento.</p>
-            <p>Características Principales:</p>
-            <p>📸 Sube Tus Fotos: Comparte tus mejores capturas con una comunidad global de fotógrafos y entusiastas. ¡Mostrar tu trabajo nunca fue tan sencillo!</p>
-            <p>🛒 Vende Tus Fotos: Transforma tu pasión en ingresos. picBlue ofrece un mercado seguro y confiable para que puedas vender tus fotos a compradores de todo el mundo.</p>
-            <p>🔍 Explora y Descubre: Navega por una amplia variedad de categorías y descubre impresionantes fotografías de otros usuarios. Encuentra inspiración y conecta con otros artistas.</p>
-            <p>💬 Interacción en la Comunidad: Comenta, da like y comparte las fotos que te encantan. Conecta con otros fotógrafos y crea una red de contactos.</p>
-            <p>🔒 Seguridad y Privacidad: Tu trabajo es valioso. picBlue garantiza la protección de tus derechos de autor y la seguridad de tus transacciones.</p>
-            <p>📈 Estadísticas y Análisis: Obtén información detallada sobre tus ventas y el rendimiento de tus fotos. Conoce mejor a tu audiencia y mejora tus estrategias de venta.</p>
-            <p>---</p>
-            <p>¡Únete a picBlue hoy y empieza a compartir tu arte con el mundo! Descarga la versión 1.0 y lleva tu fotografía al siguiente nivel. 📱✨</p>
-          </div>
-          
-        </div>
-        <button id="mostrarP5">Detalles</button>
-        <a href="aplicaciones/picBlue 1.1.zip" download>
-            <button>Descargar para android</button>
-        </a>
-        <a href="https://apps.apple.com/us/app/administrador-de-ficheros/id1664683192?l=es-MX"><button>Descargar archivo IOS</button></a>
-        
-    </div>
-    <div class="card">
-        <img id="image3" src="aplicaciones/img/crea tu web 1.1.png" alt="Archivo 6">
-        <div class="card-description" id="p6">
-        <h1>Crea tu WEB</h1>
-        <div>
-            <p>🌟 Crea tu Web 1.0 - Diseña tu Propia Página Web Visualmente 🌟</p>
-            <p>Descubre Crea tu Web, la innovadora aplicación de VulkanBlue que te permite crear páginas web de manera fácil e intuitiva. Con Crea tu Web 1.0, puedes diseñar y construir tu propio sitio web sin necesidad de conocimientos de programación. Ideal para emprendedores, pequeñas empresas y cualquier persona que desee tener presencia en línea.</p>
-            <p>Características Principales:</p>
-            <p>🖌️ Editor Visual Intuitivo: Diseña tu página web mediante un editor visual de arrastrar y soltar. Añade elementos, ajusta diseños y personaliza cada detalle sin tocar una sola línea de código.</p>
-            <p>📚 Plantillas Profesionales: Elige entre una variedad de plantillas diseñadas por expertos para diferentes tipos de negocios y propósitos. Personaliza las plantillas para que se adapten a tu estilo y necesidades.</p>
-            <p>🌐 Adaptabilidad Móvil: Todos los sitios web creados con Crea tu Web están optimizados para dispositivos móviles, garantizando una experiencia de usuario perfecta en cualquier dispositivo.</p>
-            <p>🚀 Integración con Redes Sociales: Conecta tus cuentas de redes sociales y agrega botones de compartir para mejorar tu presencia en línea y atraer más visitantes a tu sitio web.</p>
-            <p>🔒 Seguridad y Fiabilidad: La seguridad de tu sitio web es nuestra prioridad. Crea tu Web ofrece hosting seguro y confiable para que te concentres en crear sin preocupaciones.</p>
-            <p>📊 Análisis y Estadísticas: Obtén información detallada sobre el rendimiento de tu sitio web con herramientas de análisis integradas. Mide el tráfico, las visitas y otros datos importantes para optimizar tu presencia en línea.</p>
-            <p>---</p>
-            <p>¡Empieza a crear tu propio sitio web hoy mismo con Crea tu Web 1.0! Únete a la revolución de la creación de sitios web y lleva tu presencia en línea al siguiente nivel. 📱✨</p>
-          </div>
-          
-        </div>
-        <button id="mostrarP6">Detalles</button>
-        <a href="aplicaciones/Crea tu web 1.1.zip" download>
-            <button>Descargar para android</button>
-        </a>
-        <a href="https://apps.apple.com/us/app/administrador-de-ficheros/id1664683192?l=es-MX"><button>Descargar archivo IOS</button></a>
-        
-    </div>
-    <div class="card">
-        <img id="image3" src="aplicaciones/img/vulkanimg.png" alt="Archivo 7">
-        <div class="card-description" id="p7">
-        <h1>VulkanBlue</h1>
-        <div>
-            <div>
-                <p>🌟 VulkanBlue 1.0 - La Solución Informática Multiusos 🌟</p>
-                <p>Presentamos VulkanBlue, la poderosa plataforma informática multiusos de la empresa VulkanBlue. Con la versión 1.0, llevamos tus capacidades tecnológicas al siguiente nivel, ofreciendo una amplia gama de herramientas y soluciones integradas en un solo lugar. Diseñada para profesionales, pequeñas empresas y entusiastas de la tecnología, VulkanBlue es la elección perfecta para optimizar tus operaciones y potenciar tu productividad.</p>
-                <p>Características Principales:</p>
-                <p>💼 Gestión de Proyectos: Administra tus proyectos de manera eficiente con nuestras herramientas intuitivas de planificación, seguimiento y colaboración. Mantén a tu equipo sincronizado y en el camino hacia el éxito.</p>
-                <p>💻 Desarrollo Web: Crea y despliega sitios web impresionantes con facilidad. Nuestra plataforma ofrece un entorno completo para el desarrollo web, con soporte para múltiples lenguajes de programación y marcos.</p>
-                <p>📊 Análisis de Datos: Transforma tus datos en información valiosa. Con nuestras potentes herramientas de análisis, puedes visualizar, interpretar y tomar decisiones basadas en datos concretos.</p>
-                <p>🔒 Seguridad y Protección: La seguridad de tus datos es nuestra prioridad. VulkanBlue ofrece robustas características de seguridad para proteger tu información y garantizar la confidencialidad de tus operaciones.</p>
-                <p>🛠️ Soluciones Personalizadas: Adaptamos nuestras herramientas a tus necesidades específicas. Ya sea que necesites una aplicación personalizada o una solución integrada, VulkanBlue tiene todo lo que necesitas.</p>
-                <p>🌐 Integración de Servicios: Conecta todas tus aplicaciones y servicios en un solo lugar. Nuestra plataforma facilita la integración con una variedad de servicios de terceros, para que puedas centralizar tus operaciones.</p>
-                <p>📧 Soporte Técnico: Obtén asistencia técnica profesional en cualquier momento. Nuestro equipo de soporte está disponible para ayudarte con cualquier duda o problema que puedas tener.</p>
-                <p>---</p>
-                <p>¡Descubre todo lo que VulkanBlue 1.0 puede hacer por ti! Únete a nosotros y lleva tus capacidades informáticas al siguiente nivel. 🌐✨</p>
+            <p>📡 <strong>Network Survey</strong> - ¡Explora y analiza las redes inalámbricas a tu alrededor! 🌐</p>
+
+            <p>🔍 Esta aplicación te permite realizar encuestas detalladas de redes celulares, Wi-Fi, dispositivos Bluetooth y constelaciones GNSS. Captura registros precisos de la intensidad de la señal, información de la red y datos de los dispositivos. Los datos se pueden guardar en archivos GeoPackage o CSV para análisis offline. 📊</p>
+            
+            <p>👨‍💻 <strong>Desarrollador:</strong> Christian Rowlands</p>
+            
+            <p>📅 <strong>Última versión:</strong> 1.27 (28 de junio de 2024)</p>
+            
+            <p>🛠️ <strong>Género:</strong> Herramientas</p>
+            
+            <p>📂 <strong>Categoría:</strong> Utilidades de Red</p>
+            
+            <p>💻 <strong>Código base:</strong> Network Survey es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/christianrowlands/android-network-survey" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            
+            <p>⚖️ <strong>Licencia:</strong> Apache License 2.0. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. ℹ️</p>
+            
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia. 📜</p>
+            
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=com.craxiom.networksurvey" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/com.craxiom.networksurvey/" target="_blank">F-Droid</a>. 📥</p>
               </div>
-                </div>
           
-        </div>
-        <button id="mostrarP7">Detalles</button>
-        <a href="aplicaciones/VulkanBlue 1.1.zip" download>
-            <button>Descargar para android</button>
-        </a>
-        <a href="https://apps.apple.com/us/app/administrador-de-ficheros/id1664683192?l=es-MX"><button>Descargar archivo IOS</button></a>
+      </div>
+        </div></p>
+        <button onclick="toggleFullScreen(this)">Ver</button>
+
+       
+          <a href="aplicaciones/com.craxiom.networksurvey_87.apk" download>
+              <button>Descargar para android</button>
+          </a>
         
     </div>
-    <!-- Agrega más tarjetas aquí -->
+    <!--fin de aplicacion-->
+        </div>
+        <h2>Graficos</h2>
+        <div class="fotos">
+            <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>3D Model Viewer</h1>
+    <img id="image4" src="aplicaciones/img/3d mode.png" alt="3D Model Viewer">
+    <div class="" id="p4">
+        <div class="content">
+            <p>🖼️ <strong>3D Model Viewer</strong> - Visualiza modelos 3D en tu dispositivo Android 📱</p>
+            <p>🔍 3D Model Viewer es una aplicación que te permite visualizar modelos 3D directamente desde tu teléfono. Compatible con múltiples formatos como .obj, .fbx y .stl, es ideal para diseñadores, arquitectos y cualquier persona interesada en explorar modelos 3D. 🏗️</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> Igor S.</p>
+            <p>📅 <strong>Última versión:</strong> 1.3.0 (10 de julio de 2024)</p>
+            <p>🛠️ <strong>Género:</strong> Herramientas</p>
+            <p>📂 <strong>Categoría:</strong> Visualización 3D</p>
+            <p>💻 <strong>Código base:</strong> 3D Model Viewer es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/IgorS-3D/3d-model-viewer" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> MIT License. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. 📜</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia. 📚</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=com.igors3dviewer" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/com.igors3dviewer/" target="_blank">F-Droid</a>. 📥</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/org.andresoviedo.dddmodel2_36.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+            <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>Image Toolbox</h1>
+    <img id="image4" src="aplicaciones/img/tolbox.png" alt="Image Toolbox">
+    <div class="" id="p4">
+        <div class="content">
+            <p>🖼️ <strong>Image Toolbox</strong> - ¡Herramienta completa para editar imágenes! 🛠️</p>
+            <p>✨ Image Toolbox te permite realizar múltiples tareas de edición de imágenes directamente en tu dispositivo Android. Desde redimensionar, recortar, rotar hasta aplicar filtros y ajustes avanzados. ¡Haz que tus imágenes luzcan increíbles en segundos! 📸</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> Dev Team</p>
+            <p>📅 <strong>Última versión:</strong> 2.1.0 (20 de diciembre de 2024)</p>
+            <p>🛠️ <strong>Género:</strong> Herramientas</p>
+            <p>📂 <strong>Categoría:</strong> Fotografía</p>
+            <p>💻 <strong>Código base:</strong> Image Toolbox es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/devteam/imagetoolbox" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> GNU General Public License v3.0. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. ℹ️</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia. 📜</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=com.devteam.imagetoolbox" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/com.devteam.imagetoolbox/" target="_blank">F-Droid</a>. 📥</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/ru.tech.imageresizershrinker_163.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+        </div>
+      <!--  <h2>Audio</h2>>-->
+        <div class="audio"></div>
+        <h2>Desarrollo</h2>
+        <div class="ejercicios">
+
+
+            <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>Acode Editor</h1>
+    <img id="image4" src="aplicaciones/img/acode.png" alt="Acode Editor">
+    <div class="" id="p4">
+        <div class="content">
+            <p>📝 <strong>Acode Editor</strong> - ¡Potente editor de código para Android! 📱</p>
+            <p>🔧 Diseñado para desarrolladores, Acode Editor permite editar y crear archivos de código en diversos lenguajes como HTML, CSS, JavaScript y más. :contentReference[oaicite:0]{index=0}</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> Foxdebug</p>
+            <p>📅 <strong>Última versión:</strong> 1.22.0 (4 de septiembre de 2024)</p>
+            <p>🛠️ <strong>Género:</strong> Herramientas</p>
+            <p>📂 <strong>Categoría:</strong> Desarrollo</p>
+            <p>💻 <strong>Código base:</strong> Acode Editor es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: :contentReference[oaicite:1]{index=1}</p>
+            <p>⚖️ <strong>Licencia:</strong> MIT License. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. :contentReference[oaicite:2]{index=2}</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia.</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=com.foxdebug.acode" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/com.foxdebug.acode/" target="_blank">F-Droid</a>.</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/com.foxdebug.acode_955.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+        </div>
+        <h2>Redes</h2>
+        <div class="Salud">
+            <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>Delta Chat</h1>
+    <img id="image4" src="aplicaciones/img/delta chat.png" alt="Delta Chat">
+    <div class="" id="p4">
+        <div class="content">
+            <p>💬 <strong>Delta Chat</strong> - ¡Mensajería instantánea con encriptación y privacidad! 🔐</p>
+            <p>🔒 Delta Chat es una aplicación de mensajería segura que utiliza correos electrónicos convencionales para enviar mensajes, pero con la ventaja de un sistema de cifrado de extremo a extremo. No requiere de una cuenta centralizada ni servidores, lo que hace que tu comunicación sea más privada. 🛡️</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> Delta Chat Developers</p>
+            <p>📅 <strong>Última versión:</strong> 1.25.0 (15 de enero de 2025)</p>
+            <p>🛠️ <strong>Género:</strong> Comunicaciones</p>
+            <p>📂 <strong>Categoría:</strong> Mensajería</p>
+            <p>💻 <strong>Código base:</strong> Delta Chat es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/deltachat/deltachat-android" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> GNU General Public License v3.0. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. ℹ️</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia. 📜</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=org.delta" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/org.delta/" target="_blank">F-Droid</a>. 📥</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/com.b44t.messenger_7094.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+            <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>Tutanota</h1>
+    <img id="image4" src="aplicaciones/img/tutaMail.png" alt="Tutanota">
+    <div class="" id="p4">
+        <div class="content">
+            <p>📧 <strong>Tutanota</strong> - ¡Correo electrónico seguro y encriptado! 🔒</p>
+            <p>🔐 Tutanota es una aplicación de correo electrónico centrada en la seguridad. Proporciona cifrado completo de extremo a extremo para proteger tus mensajes y garantizar la privacidad en todo momento. Tutanota también permite cifrar los contactos y los calendarios, brindándote una experiencia de comunicación totalmente segura. 🔒</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> Tutanota GmbH</p>
+            <p>📅 <strong>Última versión:</strong> 3.99.0 (22 de enero de 2025)</p>
+            <p>🛠️ <strong>Género:</strong> Herramientas</p>
+            <p>📂 <strong>Categoría:</strong> Comunicaciones</p>
+            <p>💻 <strong>Código base:</strong> Tutanota es un servicio de código cerrado y propietario. Sin embargo, puedes obtener más información sobre cómo se implementa el cifrado en su <a href="https://tutanota.com/blog/" target="_blank">blog oficial</a>. 🔐</p>
+            <p>⚖️ <strong>Licencia:</strong> El servicio es gratuito para un uso limitado. Sin embargo, ofrece planes premium con más características. Consulta la <a href="https://tutanota.com/terms" target="_blank">política de privacidad y términos de servicio</a> para más detalles. ℹ️</p>
+            <p>⚠️ <strong>Nota:</strong> Tutanota cumple con altos estándares de privacidad y seguridad, y te permite proteger tus datos de manera sencilla y efectiva. Asegúrate de no compartir tu contraseña con nadie para mantener la seguridad de tu cuenta. 🔐</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=de.tutao.tutanota" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/de.tutao.tutanota/" target="_blank">F-Droid</a>. 📥</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/de.tutao.tutanota_396442.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+            <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>FairEmail</h1>
+    <img id="image4" src="aplicaciones/img/FairEmail.png" alt="FairEmail">
+    <div class="" id="p4">
+        <div class="content">
+            <p>📧 <strong>FairEmail</strong> - ¡El cliente de correo electrónico de código abierto, privado y seguro! 🔒</p>
+            <p>🛡️ FairEmail es una aplicación de correo electrónico diseñada para priorizar la privacidad y la seguridad. Permite gestionar múltiples cuentas de correo electrónico, ofrecer cifrado de extremo a extremo y soportar protocolos como IMAP, SMTP y POP3. 🌐</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> Marco Stornelli</p>
+            <p>📅 <strong>Última versión:</strong> 1.129 (7 de enero de 2025)</p>
+            <p>🛠️ <strong>Género:</strong> Comunicación</p>
+            <p>📂 <strong>Categoría:</strong> Herramientas de correo</p>
+            <p>💻 <strong>Código base:</strong> FairEmail es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/M66B/FairEmail" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> GPL-3.0 License. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. ℹ️</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia. 📜</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=org.mariotaku.fallen" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/org.mariotaku.fallen/" target="_blank">F-Droid</a>. 📥</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/eu.faircode.email_2259.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+            <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>Conversations</h1>
+    <img id="image4" src="aplicaciones/img/conversation.png" alt="Conversations">
+    <div class="" id="p4">
+        <div class="content">
+            <p>💬 <strong>Conversations</strong> - ¡Mensajería instantánea segura y de código abierto! 🔐</p>
+            <p>📱 Conversations es un cliente Jabber/XMPP para Android que ofrece mensajería instantánea segura y privada. Con soporte para imágenes, chats grupales y encriptación de extremo a extremo, es la opción ideal para quienes valoran la privacidad en sus comunicaciones. 🛡️</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> Conversations Team</p>
+            <p>📅 <strong>Última versión:</strong> 2.17.9+free (6 de enero de 2025)</p>
+            <p>🛠️ <strong>Género:</strong> Comunicación</p>
+            <p>📂 <strong>Categoría:</strong> Mensajería</p>
+            <p>💻 <strong>Código base:</strong> Conversations es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/diesys/Conversations" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> GPL-3.0 License. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. 📜</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia. 📚</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=eu.siacs.conversations" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/eu.siacs.conversations/" target="_blank">F-Droid</a>. 📥</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/eu.siacs.conversations_4213104.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+            <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>Emotic</h1>
+    <img id="image4" src="aplicaciones/img/emotic.png" alt="Emotic">
+    <div class="" id="p4">
+        <div class="content">
+            <p>😊 <strong>Emotic</strong> - ¡Expresa tus emociones con este generador de emoticonos! 😄</p>
+            <p>🎨 **Emotic** es una aplicación divertida y fácil de usar que permite crear emoticonos personalizados. 🖌️ Puedes diseñar emoticonos con diferentes expresiones y compartirlos en tus redes sociales. ¡La forma perfecta de mostrar tus sentimientos! 💬</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> No especificado en la información disponible 📜</p>
+            <p>📅 <strong>Última versión:</strong> No disponible (consulta F-Droid para detalles) 📅</p>
+            <p>🛠️ <strong>Género:</strong> Personalización 🎨</p>
+            <p>📂 <strong>Categoría:</strong> Redes Sociales 🌐</p>
+            <p>💻 <strong>Código base:</strong> Emotic es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/emotic" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> MIT License. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. 📝</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia. 📜</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://f-droid.org/packages/com.emotic/" target="_blank">F-Droid</a> 📥</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/futuristicgoo.emotic_63.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+        </div>
+        <h2>Educación</h2>
+        <div class="tareas">
+            <!--comienzo de aplicacion-->
+<div id="card" class="card">
+    <h1>Aves Libre</h1>
+    <img id="image4" src="aplicaciones/img/avesL.png" alt="Aves Libre">
+    <div class="" id="p4">
+        <div class="content">
+            <p>🐦 <strong>Aves Libre</strong> - ¡Descubre las aves de tu entorno y aprende sobre ellas! 🌍</p>
+            <p>📚 **Aves Libre** es una aplicación educativa que te permite conocer y aprender sobre las aves locales. A través de un catálogo interactivo, puedes identificar especies y aprender sobre su hábitat, alimentación y comportamiento. 🌿</p>
+            <p>👨‍💻 <strong>Desarrollador:</strong> AvesLibre Team</p>
+            <p>📅 <strong>Última versión:</strong> 2.1.0 (12 de enero de 2025)</p>
+            <p>🛠️ <strong>Género:</strong> Educación</p>
+            <p>📂 <strong>Categoría:</strong> Ciencia y Naturaleza</p>
+            <p>💻 <strong>Código base:</strong> Aves Libre es una aplicación de código abierto. Puedes acceder al código fuente y contribuir al proyecto en su repositorio de GitHub: <a href="https://github.com/aveslibre/aveslibre" target="_blank">Repositorio en GitHub</a> 🔗</p>
+            <p>⚖️ <strong>Licencia:</strong> MIT License. Esto significa que puedes usar, modificar y distribuir la aplicación, siempre que cumplas con los términos de la licencia. 📜</p>
+            <p>⚠️ <strong>Nota:</strong> Al redistribuir esta aplicación, asegúrate de mantener los créditos originales y proporcionar un enlace al repositorio del código fuente para cumplir con los términos de la licencia. 📝</p>
+            <p>🔗 <strong>Descarga:</strong> Puedes obtener la aplicación directamente desde la <a href="https://play.google.com/store/apps/details?id=com.aveslibre.android" target="_blank">Google Play Store</a> o desde <a href="https://f-droid.org/packages/com.aveslibre.android/" target="_blank">F-Droid</a>. 📥</p>
+        </div>
+    </div>
+    <button onclick="toggleFullScreen(this)">Ver</button>
+    <a href="aplicaciones/deckers.thibault.aves.libre_14204.apk" download>
+        <button>Descargar para Android</button>
+    </a>
+</div>
+<!--fin de aplicacion-->
+
+        </div>
+        
+
+
+
     </div>
 
-    <button class="scroll-button scroll-right" onclick="scrollRight()">➡️</button>
+    <div id="botones" class="botonmiossegurop">
+        <button onclick="mostrar('juegos')" class="boton_aplicaciones">Juegos 📱<i class="fas fa-gamepad">a</i></button>
+        <button onclick="mostrar('aplicaciones')">Aplicaciones 🛒</button>
+    </div>
 
 
 
-
+    
 
 
 
@@ -337,5 +743,46 @@
         mostrarOcultar('p7');
     });
 </script>
+
+
+
+<script>
+    function mostrar(seccion) {
+    var juegos = document.getElementById('juegos');
+    var aplicaciones = document.getElementById('aplicaciones');
+
+    if (seccion === 'juegos') {
+        juegos.style.display = 'block';
+        aplicaciones.style.display = 'none';
+    } else if (seccion === 'aplicaciones') {
+        aplicaciones.style.display = 'block';
+        juegos.style.display = 'none';
+    }
+}
+
+</script>
+
+<script>
+    function toggleFullScreen(button) {
+        const card = button.closest('.card'); // Encuentra la tarjeta más cercana al botón
+        const content = card.querySelector('.content');
+
+        // Verifica si está en pantalla completa
+        if (card.classList.contains('full-screen')) {
+            card.classList.remove('full-screen');
+            
+            content.style.display = 'none';
+        } else {
+            card.classList.add('full-screen');
+            content.style.display = 'block';
+        }
+
+
+
+     
+    }
+</script>
+
+ 
 </body>
 </html>
