@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contenido de Otra Página Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 20px 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        #contentFrame {
+            flex: 1;
+            width: 100%;
+            border: none;
+        }
+        .Plataformas{
+            position: fixed;
+            left:0px;
+            top: 0px; /* Adjust based on button height */
+
+        }
+        #dropdownMenu {
+            background-color: rgb(2, 182, 253);
+            color: white;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 150px;
+            height: 3000px;
+            position: fixed;
+            left:0px;
+            top: 0px; /* Adjust based on button height */
+            z-index: 2;
+        }
+
+        button {
+            background-color: blue;
+            margin: 5px;
+            padding: 10px 20px;
+            position: relative;
+            z-index: 4;
+            border: 1px solid #000000;
+            border-radius: 10%;
+        }
+
+        iframe {
+            width: 100%;
+            height: calc(100vh - 80px); /* Adjust based on header and button height */
+            border: none;
+            display: none;
+            position: absolute;
+            top: 80px; /* Adjust based on button height */
+            z-index: 1;
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("dropdownMenu");
+            if (menu.style.display === "none") {
+                menu.style.display = "flex";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+
+        function showContent(id) {
+            var iframes = document.getElementsByTagName("iframe");
+            for (var i = 0; i < iframes.length; i++) {
+                iframes[i].style.display = "none";
+            }
+            document.getElementById(id).style.display = "block";
+        }
+
+        window.onload = function() {
+            showContent('andriod');
+        };
+    </script>
+</head>
+<body>
+    <h1>vulkanStore</h1>
+    <button class="Plataformas" onclick="toggleMenu()">≡</button>
+    <div id="dropdownMenu">
+      <p>
+      </p>
+      <p></p>
+      <p></p>
+        <button onclick="showContent('andriod')">andriod📱 </button>
+        <button onclick="showContent('ios')">ios📱 </button>
+        <button onclick="showContent('pc')">pc💻</button>
+        <button onclick="showContent('Nintendo')">Nintendo🕹️</button>
+        <button onclick="showContent('ppsspp')">ppsspp🕹️</button>
+        <button onclick="showContent('Xbox')">Xbox🎮</button>
+        <button onclick="showContent('playstation')">playstation🎮</button>
+
+    </div>
+    <iframe id="andriod" src="https://vulkan-blue.github.io/VulkanBlue-Server/VulkanBstore.html"></iframe>
+    <iframe id="ios" src="https://apps.apple.com/us/app/the-battle-of-polytopia/id1006393168?l=es-MX" style="display: none;"></iframe>
+    <iframe id="pc" src="https://apps.apple.com" style="display: none;"><p>pc</p></iframe>
+    <iframe id="Nintendo" src="" style="display: none;"><p>nintendo...</p></iframe>
+    <iframe id="ppsspp" src="" style="display: none;">ppsspp...</iframe>
+    <iframe id="Xbox" src="" style="display: none;">Xbox...</iframe>
+</body>
+</html>
