@@ -9,48 +9,33 @@ function editText(){
     sumando_1 =  sumando_2;
     parrafo.innerHTML = (sumando_1);
     
-    
+    if(texto.includes("hola ")){
+
+        if(texto.includes("estas")){
+        
+        if(texto.includes("ahi")){
+        
+        var nuevoParrafo = document.createElement("p");
+        
+        nuevoParrafo.className=("respuesta")
+        
+        nuevoParrafo.innerHTML = sumando_2;
+        
+        var contenedor = document.getElementById("contenedor");
+        
+        contenedor.appendChild(nuevoParrafo);
+        
+        parrafo.textContent ="si claro que estoy aqui"
+        
+        }
+        
+        }
+        
+        }
 
 
-    
-
-    if(texto.includes("hola")){
-    
-    if(texto.includes("")){
-    
-    if(texto.includes("")){
-    
-    if(texto.includes("")){
-    
-    var nuevoParrafo = document.createElement("p");
-    
-    nuevoParrafo.innerHTML = sumando_2;
-    
-    var contenedor = document.getElementById("contenedor");
-    
-    contenedor.appendChild(nuevoParrafo);
-    
-    parrafo.textContent ="hola" }}}}
-    
- 
-    
-    if(texto.includes("hola")){
-    
-    if(texto.includes("")){
-    
-    if(texto.includes("es")){
-    
-    if(texto.includes("hoy")){
-    
-    var nuevoParrafo = document.createElement("p");
-    
-    nuevoParrafo.innerHTML = sumando_2;
-    
-    var contenedor = document.getElementById("contenedor");
-    
-    contenedor.appendChild(nuevoParrafo);
-    
-    parrafo.textContent ="hoy es lunes" }}}}
+      
+        
 
 
     var contenedor = document.getElementById("contenedor"); 

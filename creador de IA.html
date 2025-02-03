@@ -6,7 +6,11 @@
     <title>IA creador</title>
  
     <style>
-      #container {
+      .codigos{
+        display: flex;
+          height: 50%;
+      }
+     .controlador {
           display: flex;
           height: 50%;
       }
@@ -35,15 +39,44 @@
      #fijo{
      
       position: fixed;
-      background-color: rgb(199, 199, 199);
-            top: 500px;
+      background-color: rgb(255, 255, 255);
+          bottom: 0px;
             
      }
+     @media (max-width: 600px) {
+          #pagina_legible, #codigo {
+              flex: unset;
+              width: 100%;
+          }
+       
+          button {
+              font-size: 10px;
+              padding: 5px;
+              background-color: rgb(48, 202, 73);
+        color: rgb(255, 251, 0);
+          }
+          textarea {
+              font-size: 10px;
+              padding: 5px;
+              height: 5px;
+          }
+          #textareas {
+            height: 5px;
+              padding: 5px;
+          }
+          .controlador{
+            display: flex;
+          }
+      
+      #container p{
+        font-size: 10px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div id="container">
+  <div id="container" class="codigos">
     
    <div id="pagina_legible">________________________________________________________________</div>
   <div id="codigo">
@@ -53,19 +86,29 @@
 </div>
 
  <div id="fijo">
-  <div id="container">
-    
-   <p>Pregunta Cabecera</p>
+  <div id="container" class="controlador">
+    <ul>
+   <p>Neurona Principal</p>
  <textarea name="textarea" id="cabecera"></textarea>
- <p>Pregunta secundaria</p>
- <textarea name="textarea1" id="secundaria"></textarea>
- <p>Pregunta tercearia</p>
+ <button onclick="contenido1()" >Cabecera</button>
+ <p>Neurona tercearia</p>
  <textarea name="textarea2" id="tercearia"></textarea>
- <p>Pregunta extra</p>
+ <button onclick="contenido3()" >Tercearia</button>
+</ul>
+<ul>
+  <p>Neurona secundaria</p>
+ <textarea name="textarea1" id="secundaria"></textarea>
+ <button onclick="contenido2()" >Secundaria</button>
+ 
+ <p>Neurona extra</p>
  <textarea name="textarea3" id="extra"></textarea>
+ <button onclick="contenido4()" >final</button>
  </div>
+</ul>
  <p>Respuesta</p>
  <textarea name="textarea4" id="respuesta"></textarea>
+ <button onclick="respuesta()" >Respuesta</button>
+ <button onclick="Cierre()" >Cierre</button>
  <button onclick="contenido()" >contenido</button>
  <button onclick="descargarContenido()">Descargar Contenido</button>
  <button onclick="crearIA()">Crear Inteligencia Artificial</button>
@@ -77,37 +120,47 @@
 
     <script >
       
-        
+      var close = 20;  
       var cuadro = document.getElementById('pagina_legible');
       var codigo = document.getElementById('codigo');
-      
+      var idpos = 0;
     var toque = 0;
+    var aceptado = false;
     
-
-    function contenido(){
-  //guia
-        toque = toque + 1;
+//cabecera
+  function contenido1(){
+    aceptado = false;
+    if (idpos == 0){
+      idpos = 1;
+    close = 0;
+    //cabecera
+    var cabecera = document.getElementById('cabecera').value;
         var p1 = document.createElement("p");
-       p1.textContent = '//'+toque;
-        cuadro.appendChild(p1);
-        var p1 = document.createElement("p");
-       p1.textContent = '//' + toque;
-        codigo.appendChild(p1);
-
-      //cabecera
-      var cabecera = document.getElementById('cabecera').value;
+    p1.textContent = "________________________________________________________________";
+    cuadro.appendChild(p1);
+    var cabecera = document.getElementById('cabecera').value;
         var p1 = document.createElement("p");
     p1.textContent = "cabecera =" + cabecera;
     cuadro.appendChild(p1);
-
+    
     //cabecerqa codigo:
    
     var p2 = document.createElement("p");
     p2.textContent = "if(texto.includes("+'"' +cabecera + '"' + ")){";
     codigo.appendChild(p2);
-
-    
-    //secundaria
+  }
+  else{
+    var cabecera = document.getElementById('cabecera').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "por favor, cierre las otras suposciciones";
+    cuadro.appendChild(p1);
+  }
+  }
+  //secundaria
+  function contenido2(){
+    if (idpos == 1){
+      idpos = 2;
+    close = 1;
     var cabecera = document.getElementById('secundaria').value;
         var p1 = document.createElement("p");
     p1.textContent = "secundaria =" + cabecera;
@@ -117,9 +170,22 @@
     var p2 = document.createElement("p");
     p2.textContent = 'if(texto.includes("'+cabecera+'")){';
     codigo.appendChild(p2);
-
-    //tercearia
-    var cabecera = document.getElementById('tercearia').value;
+    }
+    else{
+    var cabecera = document.getElementById('cabecera').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "por favor, cierre las otras suposciciones";
+    cuadro.appendChild(p1);
+  }
+  }
+  //terrcearia     5555
+  function contenido3(){
+    
+    if (idpos == 2){
+      idpos = 3;
+    close = 2;
+   //tercearia
+   var cabecera = document.getElementById('tercearia').value;
         var p1 = document.createElement("p");
     p1.textContent = "tercearia =" + cabecera;
     cuadro.appendChild(p1);
@@ -128,43 +194,146 @@
      var p2 = document.createElement("p");
     p2.textContent = 'if(texto.includes("'+cabecera+'")){';
     codigo.appendChild(p2);
-
-    //extra
+  }
+    else{
+    var cabecera = document.getElementById('cabecera').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "por favor, cierre las otras suposciciones";
+    cuadro.appendChild(p1);
+  }
+  }
+   
+  
+  //Extra     5555
+   function contenido4(){
+    if (idpos == 3){
+      idpos =4;
+    close = 3;
     var cabecera = document.getElementById('extra').value;
         var p1 = document.createElement("p");
     p1.textContent = "extra =" + cabecera;
     cuadro.appendChild(p1);
 
-
-    // codigo extra 
-    var respuesta = document.getElementById('respuesta').value;
-    var p0 = document.createElement("p");
-    p0.textContent = 'if(texto.includes("'+cabecera+'")){';
-
-        var p1 = document.createElement("p");
-    p1.textContent = 'var nuevoParrafo = document.createElement("p");';
-    var p2 = document.createElement("p");
-    p2.textContent = 'nuevoParrafo.innerHTML = sumando_2;';
-    var p3 = document.createElement("p");
-    p3.textContent = 'var contenedor = document.getElementById("contenedor"); ';
-    var p4 = document.createElement("p");
-    p4.textContent = 'contenedor.appendChild(nuevoParrafo);';
-    var p5 = document.createElement("p");
-    p5.textContent = 'parrafo.textContent ="' + respuesta + '" }}}}';
-
-    codigo.appendChild(p0);
-    codigo.appendChild(p1);
+     //tercearia codigo 
+     var p2 = document.createElement("p");
+    p2.textContent = 'if(texto.includes("'+cabecera+'")){';
     codigo.appendChild(p2);
-    codigo.appendChild(p3);
-    codigo.appendChild(p4);
-    codigo.appendChild(p5);
-    var p5 = document.createElement("p");
-    p5.textContent = 'respuesta ='+ respuesta;
-    cuadro.appendChild(p5);
-// limite
-    var p1 = document.createElement("p");
-    p1.textContent ='//'+ "________________________________________________________________";
+  }
+    else{
+    var cabecera = document.getElementById('cabecera').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "por favor, cierre las otras suposciciones";
     cuadro.appendChild(p1);
+  }
+  }
+  //respuesta
+  function respuesta(){
+    var cabecera = document.getElementById('respuesta').value;
+        var p1 = document.createElement("p");
+   
+    p1.textContent = "respuesta =" + cabecera;
+    cuadro.appendChild(p1);
+   
+     //respuesta codigo 
+     var p9 = document.createElement("p");
+     var p4 = document.createElement("p");
+     var p8 = document.createElement("p");
+     var p7 = document.createElement("p");
+     var p6 = document.createElement("p");
+     var p5 = document.createElement("p");
+    p9.textContent = ' var nuevoParrafo = document.createElement("p");';
+    p4.textContent = 'nuevoParrafo.className='+'("respuesta")';
+    p8.textContent = 'nuevoParrafo.innerHTML = sumando_2;';
+    p7.textContent = 'var contenedor = document.getElementById("contenedor");';
+    p6.textContent = 'contenedor.appendChild(nuevoParrafo);';
+    p5.textContent = 'parrafo.textContent ="'+cabecera+'"';
+    codigo.appendChild(p9);
+    codigo.appendChild(p4);
+    codigo.appendChild(p8);
+    codigo.appendChild(p7);
+    codigo.appendChild(p6);
+    codigo.appendChild(p5);
+    aceptado = true;
+
+  }
+
+
+  //cierre
+function Cierre(){
+
+    //cabecerqa codigo:
+
+//cierre dato
+if (aceptado == false){
+    var cabecera = document.getElementById('cabecera').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "Por favor, de respuesta a la neurona";
+    cuadro.appendChild(p1);
+   }
+   if (aceptado == true){
+if(close==0){
+     
+  var p2 = document.createElement("p");
+    p2.textContent = "}";
+    codigo.appendChild(p2);
+
+  var cabecera = document.getElementById('cabecera').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "Cerrada neurona principal";
+    cuadro.appendChild(p1);
+    close = 20;
+}
+if(close==1){
+
+     
+  var p2 = document.createElement("p");
+    p2.textContent = "}";
+    codigo.appendChild(p2);
+
+  var cabecera = document.getElementById('cabecera').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "Cerrada neurona 2";
+    cuadro.appendChild(p1);
+}
+if(close==2){
+     
+  var p2 = document.createElement("p");
+    p2.textContent = "}";
+    codigo.appendChild(p2);
+
+  var cabecera = document.getElementById('cabecera').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "Cerrada neurona 3";
+    cuadro.appendChild(p1);
+}
+if(close==3){
+     
+  var p2 = document.createElement("p");
+    p2.textContent = "}";
+    codigo.appendChild(p2);
+    
+  var cabecera = document.getElementById('cabecera').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "Cerrada neurona 4";
+    cuadro.appendChild(p1);
+}
+var b = idpos -1;
+var a = close -1;
+close = a;
+idpos = b;
+if(close<0||idpos<0){
+  close = 20;
+  idpos = 0;
+  var cabecera = document.getElementById('cabecera').value;
+        var p1 = document.createElement("p");
+    p1.textContent = "Por favor abra una neurona";
+    cuadro.appendChild(p1);
+   }
+  }
+}
+
+    function contenido(){
+  
 
   }
 
@@ -305,29 +474,16 @@ comienzo.appendChild(p1);
 var p1 = document.createElement("p");
 p1.textContent = 'marca';
 atras.appendChild(p1);
-
-
-
-
-
-
-
-
-
-
-/*
-
-//guardado
-var contenido = document.getElementById("codigo").innerText;
-var blob = new Blob([contenido], { type: "text/plain;charset=utf-8" });
-var enlace = document.createElement("a");
-enlace.href = URL.createObjectURL(blob);
-enlace.download = "contenido.txt";
-enlace.click();
-
-*/
-
 }
+
 </script>
+
+
+
+
+
+
+
+
 </body>
 </html>
