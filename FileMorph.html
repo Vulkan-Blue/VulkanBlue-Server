@@ -464,8 +464,11 @@ label {
         const vidTypeSelect = document.getElementById('video-type').value;
         const fileTypeSelect = document.getElementById('file-type').value;
         const filepnoomber = document.getElementById('file-upload').value;
-        let confirmacio = document.getElementById("localizacionConfirmada");
+        const confirmacio = document.getElementById("localizacionConfirmada");
        
+
+ // Agregarle texto
+ confirmacio.textContent = "Convirtiendo a "+imgTypeSelect+vidTypeSelect+fileTypeSelect;
 
 
             
@@ -523,6 +526,7 @@ label {
                         convertedBlob = blob;
                         convertedFileName = file.name.replace(/\.[^/.]+$/, "." + imgTypeSelect); // Cambia la extensión al formato seleccionado
                         alert('La conversión se completó. Ahora puedes descargar el archivo.');
+                        confirmacio.textContent = "Convertido a "+imgTypeSelect+vidTypeSelect+fileTypeSelect;
                     }, 'image/' + imgTypeSelect);
                 };
                 img.src = e.target.result;
@@ -567,6 +571,7 @@ label {
                 convertedBlob = blob;
                 convertedFileName = file.name.replace(/\.[^/.]+$/, "." + vidTypeSelect); // Cambia la extensión al formato seleccionado
                 alert('La conversión se completó. Ahora puedes descargar el archivo.');
+                confirmacio.textContent = "Convertido a "+imgTypeSelect+vidTypeSelect+fileTypeSelect;
             };
     
             reader.readAsArrayBuffer(file); // Leer el archivo como ArrayBuffer
@@ -617,6 +622,10 @@ label {
                 convertedBlob = blob;
                 convertedFileName = file.name.replace(/\.[^/.]+$/, "." + fileTypeSelect); // Cambia la extensión al formato seleccionado
                 alert('La conversión se completó. Ahora puedes descargar el archivo.');
+
+
+
+                confirmacio.textContent = "Convertido a "+imgTypeSelect+vidTypeSelect+fileTypeSelect;
             };
     
             reader.readAsText(file); // Leer el archivo como texto
@@ -626,10 +635,7 @@ label {
 
 
 
-        // Agregarle texto
-        confirmacio.textContent = "Convertido a "+imgTypeSelect+vidTypeSelect+fileTypeSelect;
-
-
+       
 
     });
     
