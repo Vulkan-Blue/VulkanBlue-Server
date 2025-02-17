@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir y Descargar Archivos</title>
+    <style>
+        /* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+/* Estilos para el botón */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para los inputs y el select */
+input[type="file"], select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#formatos-de-texto{
+    display: none;
+}
+#formatos-de-imagen{
+    display: none;
+}
+#formatos-de-video{
+    display: none;
+}
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+        select option {
+            font-size: 12px; /* Puedes ajustar el tamaño según tus preferencias */
+        }
+       
+    </style>
+</head>
+<body>
+  
+    <form id="upload-form">
+      
+        <label for="file-upload">Sube tu archivo:</label>
+        <input type="file" id="file-upload"  onchange="checkFileType()"><br><br>
+        <label for="file-type">Selecciona el tipo de archivo:</label>
+    
+        <div id="formatos-de-texto">
+        <label for="video-type">Formatos de texto:</label>    
+        <select id="file-type">
+            <table >
+            <option value="txt">TXT (Texto Plano)</option>
+            <option value="md">MD (Markdown)</option>
+            <option value="log">LOG (Registro de eventos)</option>
+            <option value="csv">CSV (Valores Separados por Comas)</option>
+            <option value="tsv">TSV (Valores Separados por Tabulaciones)</option>
+            <option value="json">JSON (JavaScript Object Notation)</option>
+            <option value="xml">XML (Extensible Markup Language)</option>
+            <option value="yaml">YAML (Yet Another Markup Language)</option>
+            <option value="ini">INI (Archivo de Configuración)</option>
+            <option value="doc">DOC (Microsoft Word Antiguo)</option>
+            <option value="docx">DOCX (Microsoft Word Moderno)</option>
+            <option value="odt">ODT (OpenDocument Text - LibreOffice)</option>
+            <option value="rtf">RTF (Rich Text Format)</option>
+            <option value="tex">TEX (Documento LaTeX)</option>
+            <option value="wpd">WPD (WordPerfect)</option>
+            <option value="pages">PAGES (Apple Pages)</option>
+            <option value="pdf">PDF (Formato de Documento Portátil)</option>
+            <option value="epub">EPUB (Libro Electrónico Estándar)</option>
+            <option value="mobi">MOBI (Formato Kindle Antiguo)</option>
+            <option value="azw">AZW (Formato Kindle de Amazon)</option>
+            <option value="azw3">AZW3 (Formato Kindle Mejorado)</option>
+            <option value="djvu">DJVU (Alternativa a PDF, optimizado para escaneos)</option>
+            <option value="xps">XPS (Documento de Microsoft, alternativa a PDF)</option>
+            <option value="ppt">PPT (Presentación PowerPoint Antigua)</option>
+            <option value="pptx">PPTX (Presentación PowerPoint Moderna)</option>
+            <option value="odp">ODP (Presentación OpenDocument - LibreOffice)</option>
+            <option value="xls">XLS (Hoja de Cálculo Excel Antigua)</option>
+            <option value="xlsx">XLSX (Hoja de Cálculo Excel Moderna)</option>
+            <option value="ods">ODS (Hoja de Cálculo OpenDocument - LibreOffice)</option>
+            <option value="man">MAN (Páginas de Manual UNIX/Linux)</option>
+            <option value="rst">RST (reStructuredText, documentación técnica)</option>
+            <option value="asciidoc">ASCIIDOC (Formato de Documentación Técnica)</option>
+            <option value="zip">zip(Archivo comprimido)</option>
+        </table>
+   </select>
+</div>
+<div id="formatos-de-video">
+        <label for="video-type">Formatos de Video:</label>
+<select id="video-type">
+    <option value="mp4">MP4 (MPEG-4 Part 14 - Popular y compatible)</option>
+    <option value="avi">AVI (Audio Video Interleave - Microsoft)</option>
+    <option value="mkv">MKV (Matroska - Soporta múltiples pistas)</option>
+    <option value="mov">MOV (QuickTime - Apple)</option>
+    <option value="wmv">WMV (Windows Media Video - Microsoft)</option>
+    <option value="flv">FLV (Flash Video - Usado en streaming antiguo)</option>
+    <option value="webm">WEBM (Formato optimizado para la web)</option>
+    <option value="ogv">OGV (Ogg Video - Código abierto)</option>
+    <option value="3gp">3GP (Formato de video para móviles antiguos)</option>
+    <option value="3g2">3G2 (Versión mejorada del 3GP)</option>
+    <option value="m4v">M4V (Similar a MP4, usado por Apple)</option>
+    <option value="mpg">MPG (MPEG-1 o MPEG-2 - Formato clásico)</option>
+    <option value="mpeg">MPEG (Moving Picture Experts Group)</option>
+    <option value="mts">MTS (Formato de video de alta definición AVCHD)</option>
+    <option value="m2ts">M2TS (Blu-ray Disc Audio-Video - BDAV)</option>
+    <option value="vob">VOB (Formato de video en DVD)</option>
+    <option value="ts">TS (Transport Stream - Streaming y difusión)</option>
+    <option value="f4v">F4V (Flash Video mejorado, basado en MP4)</option>
+    <option value="divx">DIVX (Alta compresión con buena calidad)</option>
+    <option value="xvid">XVID (Alternativa a DIVX, código abierto)</option>
+    <option value="rm">RM (RealMedia - Usado en transmisiones antiguas)</option>
+    <option value="rmvb">RMVB (Versión mejorada de RealMedia)</option>
+    <option value="asf">ASF (Advanced Systems Format - Microsoft)</option>
+    <option value="amv">AMV (Formato de video comprimido para dispositivos portátiles)</option>
+    <option value="yuv">YUV (Formato de video sin compresión, usado en procesamiento)</option>
+    <option value="bik">BIK (Bink Video - Usado en videojuegos)</option>
+    <option value="ivf">IVF (Indeo Video Format - Formato antiguo de Intel)</option>
+    <option value="zip">zip(Archivo comprimido)</option>
+</select>
+</div>
+<div id="formatos-de-imagen">
+    <label for="image-type">Formatos de Imagen:</label>
+    <select id="image-type">
+        <option value="jpg">JPG - Joint Photographic Experts Group</option>
+        <option value="jpeg">JPEG - Joint Photographic Experts Group</option>
+        <option value="png">PNG - Portable Network Graphics</option>
+        <option value="gif">GIF - Graphics Interchange Format</option>
+        <option value="webp">WEBP - Web Picture Format</option>
+        <option value="bmp">BMP - Bitmap Image</option>
+        <option value="tiff">TIFF - Tagged Image File Format</option>
+        <option value="tif">TIF - Tagged Image File</option>
+        <option value="ico">ICO - Icon File</option>
+        <option value="svg">SVG - Scalable Vector Graphics</option>
+        <option value="eps">EPS - Encapsulated PostScript</option>
+        <option value="ai">AI - Adobe Illustrator</option>
+        <option value="pdf">PDF - Portable Document Format</option>
+        <option value="psd">PSD - Photoshop Document</option>
+        <option value="xcf">XCF - GIMP Image File</option>
+        <option value="heif">HEIF - High Efficiency Image Format</option>
+        <option value="heic">HEIC - High Efficiency Image Coding</option>
+        <option value="avif">AVIF - AV1 Image File Format</option>
+        <option value="raw">RAW - Raw Image Format</option>
+        <option value="cr2">CR2 - Canon Raw Version 2</option>
+        <option value="nef">NEF - Nikon Electronic Format</option>
+        <option value="orf">ORF - Olympus Raw Format</option>
+        <option value="sr2">SR2 - Sony Raw Format</option>
+        <option value="dng">DNG - Digital Negative</option>
+        <option value="raf">RAF - Fuji Raw Format</option>
+        <option value="arw">ARW - Sony Alpha Raw</option>
+        <option value="jp2">JP2 - JPEG 2000</option>
+        <option value="jxr">JXR - JPEG XR</option>
+        <option value="tga">TGA - Truevision Graphics Adapter</option>
+        <option value="exr">EXR - OpenEXR</option>
+    </select>
+    
+</div>
+        <button type="button" onclick="downloadFile()">Descargar</button>
+      
+    </form>
+  
+
+
+<script>
+    function checkFileType() {
+        const fileInput = document.getElementById('file-upload');
+        const filediv = document.getElementById('formatos-de-texto');
+        const fileTypeSelect = document.getElementById('file-type');
+        const vidTypeSelect = document.getElementById('video-type');
+        const videodiv = document.getElementById('formatos-de-video');   
+        const imgTypeSelect = document.getElementById('image-type');
+        const imagendiv = document.getElementById('formatos-de-imagen');
+       
+        const file = fileInput.files[0];
+      
+
+
+        if (        file.name.endsWith('.txt') || 
+        file.name.endsWith('.md') ||  file.name.endsWith('.log') || 
+        file.name.endsWith('.csv') || 
+        file.name.endsWith('.tsv') || 
+        file.name.endsWith('.json') || 
+        file.name.endsWith('.xml') || 
+        file.name.endsWith('.yaml') || 
+        file.name.endsWith('.yml') || 
+        file.name.endsWith('.ini') || 
+        file.name.endsWith('.doc') || 
+        file.name.endsWith('.docx') || 
+        file.name.endsWith('.odt') || 
+        file.name.endsWith('.rtf') || 
+        file.name.endsWith('.tex') || 
+        file.name.endsWith('.wpd') || 
+        file.name.endsWith('.pages') || 
+        file.name.endsWith('.pdf') || 
+        file.name.endsWith('.epub') || 
+        file.name.endsWith('.mobi') || 
+        file.name.endsWith('.azw') || 
+        file.name.endsWith('.azw3') || 
+        file.name.endsWith('.djvu') || 
+        file.name.endsWith('.xps') || 
+        file.name.endsWith('.ppt') || 
+        file.name.endsWith('.pptx') || 
+        file.name.endsWith('.odp') || 
+        file.name.endsWith('.xls') || 
+        file.name.endsWith('.xlsx') || 
+        file.name.endsWith('.ods') || 
+        file.name.endsWith('.man') || 
+        file.name.endsWith('.rst') || 
+        file.name.endsWith('.asciidoc')
+) {
+    filediv.style.display = 'block';
+    imagendiv.style.display = 'none';
+    videodiv.style.display = 'none';
+            
+            
+            
+        }  else if (file.name.endsWith('.mp4') || file.name.endsWith('.avi') ||  file.name.endsWith('.mkv') || file.name.endsWith('.mov') || 
+        file.name.endsWith('.wmv') || 
+        file.name.endsWith('.flv') || 
+        file.name.endsWith('.webm') || 
+        file.name.endsWith('.ogv') || 
+        file.name.endsWith('.3gp') || 
+        file.name.endsWith('.3g2') || 
+        file.name.endsWith('.m4v') || 
+        file.name.endsWith('.mpg') || 
+        file.name.endsWith('.mpeg') || 
+        file.name.endsWith('.mts') || 
+        file.name.endsWith('.m2ts') || 
+        file.name.endsWith('.vob') || 
+        file.name.endsWith('.ts') || 
+        file.name.endsWith('.f4v') || 
+        file.name.endsWith('.divx') || 
+        file.name.endsWith('.xvid') || 
+        file.name.endsWith('.rm') || 
+        file.name.endsWith('.rmvb') || 
+        file.name.endsWith('.asf') || 
+        file.name.endsWith('.amv') || 
+        file.name.endsWith('.yuv') || 
+        file.name.endsWith('.bik') || 
+        file.name.endsWith('.ivf')
+    ) {
+        filediv.style.display = 'none';
+    imagendiv.style.display = 'none';
+    videodiv.style.display = 'block';
+
+
+        } else if ( file.name.endsWith('.jpg') || 
+        file.name.endsWith('.jpeg') || 
+        file.name.endsWith('.png') || 
+        file.name.endsWith('.gif') || 
+        file.name.endsWith('.webp') || 
+        file.name.endsWith('.bmp') || 
+        file.name.endsWith('.tiff') || 
+        file.name.endsWith('.tif') || 
+        file.name.endsWith('.ico') || 
+        file.name.endsWith('.svg') || 
+        file.name.endsWith('.eps') || 
+        file.name.endsWith('.ai') || 
+        file.name.endsWith('.pdf') || 
+        file.name.endsWith('.psd') || 
+        file.name.endsWith('.xcf') || 
+        file.name.endsWith('.heif') || 
+        file.name.endsWith('.heic') || 
+        file.name.endsWith('.avif') || 
+        file.name.endsWith('.raw') || 
+        file.name.endsWith('.cr2') || 
+        file.name.endsWith('.nef') || 
+        file.name.endsWith('.orf') || 
+        file.name.endsWith('.sr2') || 
+        file.name.endsWith('.dng') || 
+        file.name.endsWith('.raf') || 
+        file.name.endsWith('.arw') || 
+        file.name.endsWith('.jp2') || 
+        file.name.endsWith('.jxr') || 
+        file.name.endsWith('.tga') || 
+        file.name.endsWith('.exr')) {
+            filediv.style.display = 'none';
+    imagendiv.style.display = 'block';
+    videodiv.style.display = 'none';
+
+
+            
+        }
+        else{
+            
+            fileTypeSelect.style.display = 'none';
+        }
+    }
+
+    function downloadFile() {
+        const fileInput = document.getElementById('file-upload');
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        const formato = document.getElementById('file-type').value;
+        if (        file.name.endsWith('.txt') || 
+        file.name.endsWith('.md') ||  file.name.endsWith('.log') || 
+        file.name.endsWith('.csv') || 
+        file.name.endsWith('.tsv') || 
+        file.name.endsWith('.json') || 
+        file.name.endsWith('.xml') || 
+        file.name.endsWith('.yaml') || 
+        file.name.endsWith('.yml') || 
+        file.name.endsWith('.ini') || 
+        file.name.endsWith('.doc') || 
+        file.name.endsWith('.docx') || 
+        file.name.endsWith('.odt') || 
+        file.name.endsWith('.rtf') || 
+        file.name.endsWith('.tex') || 
+        file.name.endsWith('.wpd') || 
+        file.name.endsWith('.pages') || 
+        file.name.endsWith('.pdf') || 
+        file.name.endsWith('.epub') || 
+        file.name.endsWith('.mobi') || 
+        file.name.endsWith('.azw') || 
+        file.name.endsWith('.azw3') || 
+        file.name.endsWith('.djvu') || 
+        file.name.endsWith('.xps') || 
+        file.name.endsWith('.ppt') || 
+        file.name.endsWith('.pptx') || 
+        file.name.endsWith('.odp') || 
+        file.name.endsWith('.xls') || 
+        file.name.endsWith('.xlsx') || 
+        file.name.endsWith('.ods') || 
+        file.name.endsWith('.man') || 
+        file.name.endsWith('.rst') || 
+        file.name.endsWith('.asciidoc')
+) {
+    const fileTypeSelect = document.getElementById('file-type').value;
+        const vidTypeSelect = document.getElementById('video-type');
+        const imgTypeSelect = document.getElementById('image-type');
+        reader.onload = function(e) {
+            const fileContent = e.target.result;
+            const blob = new Blob([fileContent], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = file.name.replace(/\.[^/.]+$/, "." + fileTypeSelect); // Cambia la extensión al formato seleccionado
+            link.click();
+        };
+
+        if (file) {
+            reader.readAsText(file); // Leer el archivo como texto
+        } else {
+            alert('Por favor, sube un archivo primero.');
+        }
+
+        }  else if (file.name.endsWith('.mp4') || file.name.endsWith('.avi') ||  file.name.endsWith('.mkv') || file.name.endsWith('.mov') || 
+        file.name.endsWith('.wmv') || 
+        file.name.endsWith('.flv') || 
+        file.name.endsWith('.webm') || 
+        file.name.endsWith('.ogv') || 
+        file.name.endsWith('.3gp') || 
+        file.name.endsWith('.3g2') || 
+        file.name.endsWith('.m4v') || 
+        file.name.endsWith('.mpg') || 
+        file.name.endsWith('.mpeg') || 
+        file.name.endsWith('.mts') || 
+        file.name.endsWith('.m2ts') || 
+        file.name.endsWith('.vob') || 
+        file.name.endsWith('.ts') || 
+        file.name.endsWith('.f4v') || 
+        file.name.endsWith('.divx') || 
+        file.name.endsWith('.xvid') || 
+        file.name.endsWith('.rm') || 
+        file.name.endsWith('.rmvb') || 
+        file.name.endsWith('.asf') || 
+        file.name.endsWith('.amv') || 
+        file.name.endsWith('.yuv') || 
+        file.name.endsWith('.bik') || 
+        file.name.endsWith('.ivf')
+    ) {
+        const fileTypeSelect = document.getElementById('file-type');
+        const vidTypeSelect = document.getElementById('video-type').value;
+        const imgTypeSelect = document.getElementById('image-type');
+        reader.onload = function(e) {
+            const fileContent = e.target.result;
+            const blob = new Blob([fileContent], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = file.name.replace(/\.[^/.]+$/, "." + vidTypeSelect); // Cambia la extensión al formato seleccionado
+            link.click();
+        };
+
+        if (file) {
+            reader.readAsText(file); // Leer el archivo como texto
+        } else {
+            alert('Por favor, sube un archivo primero.');
+        }
+
+        } else if ( file.name.endsWith('.jpg') || 
+        file.name.endsWith('.jpeg') || 
+        file.name.endsWith('.png') || 
+        file.name.endsWith('.gif') || 
+        file.name.endsWith('.webp') || 
+        file.name.endsWith('.bmp') || 
+        file.name.endsWith('.tiff') || 
+        file.name.endsWith('.tif') || 
+        file.name.endsWith('.ico') || 
+        file.name.endsWith('.svg') || 
+        file.name.endsWith('.eps') || 
+        file.name.endsWith('.ai') || 
+        file.name.endsWith('.pdf') || 
+        file.name.endsWith('.psd') || 
+        file.name.endsWith('.xcf') || 
+        file.name.endsWith('.heif') || 
+        file.name.endsWith('.heic') || 
+        file.name.endsWith('.avif') || 
+        file.name.endsWith('.raw') || 
+        file.name.endsWith('.cr2') || 
+        file.name.endsWith('.nef') || 
+        file.name.endsWith('.orf') || 
+        file.name.endsWith('.sr2') || 
+        file.name.endsWith('.dng') || 
+        file.name.endsWith('.raf') || 
+        file.name.endsWith('.arw') || 
+        file.name.endsWith('.jp2') || 
+        file.name.endsWith('.jxr') || 
+        file.name.endsWith('.tga') || 
+        file.name.endsWith('.exr')) {
+            const fileTypeSelect = document.getElementById('file-type');
+        const vidTypeSelect = document.getElementById('video-type');
+        const imgTypeSelect = document.getElementById('image-type').value;
+        reader.onload = function(e) {
+            const fileContent = e.target.result;
+            const blob = new Blob([fileContent], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = file.name.replace(/\.[^/.]+$/, "." + imgTypeSelect); // Cambia la extensión al formato seleccionado
+            link.click();
+        };
+
+        if (file) {
+            reader.readAsText(file); // Leer el archivo como texto
+        } else {
+            alert('Por favor, sube un archivo primero.');
+        }
+        }
+        else{
+            
+            fileTypeSelect.style.display = 'none';
+        }
+   
+
+    }
+</script>
+</body>
+</html>
