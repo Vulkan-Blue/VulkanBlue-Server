@@ -77,7 +77,7 @@ label {
         select option {
             font-size: 12px; /* Puedes ajustar el tamaño según tus preferencias */
         }
-        #mipjhabdubsaudb{
+        #localizacionConfirmada{
             font-size: 12px; /* Puedes ajustar el tamaño según tus preferencias */
             color: rgb(65, 65, 65); 
         }
@@ -95,7 +95,9 @@ label {
         <label for="video-type">Formatos de texto:</label>    
         <select id="file-type">
             <table >
+            <option value=""></option>
             <option value="txt">TXT (Texto Plano)</option>
+            <option value="pdf">PDF (Tipo de archivo pdf)</option>
             <option value="md">MD (Markdown)</option>
             <option value="log">LOG (Registro de eventos)</option>
             <option value="csv">CSV (Valores Separados por Comas)</option>
@@ -106,6 +108,7 @@ label {
             <option value="ini">INI (Archivo de Configuración)</option>
             <option value="doc">DOC (Microsoft Word Antiguo)</option>
             <option value="docx">DOCX (Microsoft Word Moderno)</option>
+            <option value="docm">DOCM (Microsoft Word Nuevo)</option>
             <option value="odt">ODT (OpenDocument Text - LibreOffice)</option>
             <option value="rtf">RTF (Rich Text Format)</option>
             <option value="tex">TEX (Documento LaTeX)</option>
@@ -134,6 +137,7 @@ label {
 <div id="formatos-de-video">
         <label for="video-type">Formatos de Video:</label>
 <select id="video-type">
+    <option value=""></option>
     <option value="mp4">MP4 (MPEG-4 Part 14 - Popular y compatible)</option>
     <option value="avi">AVI (Audio Video Interleave - Microsoft)</option>
     <option value="mkv">MKV (Matroska - Soporta múltiples pistas)</option>
@@ -167,6 +171,7 @@ label {
 <div id="formatos-de-imagen">
     <label for="image-type">Formatos de Imagen:</label>
     <select id="image-type">
+        <option value=""></option>
         <option value="jpg">JPG - Joint Photographic Experts Group</option>
         <option value="jpeg">JPEG - Joint Photographic Experts Group</option>
         <option value="png">PNG - Portable Network Graphics</option>
@@ -200,8 +205,15 @@ label {
     </select>
     
 </div>
-        <button type="button" onclick="downloadFile()">Descargar</button>
-      <p id="mipjhabdubsaudb">Los archivos deben iniciar siempre con una letra y no con un número. Si inician con un número no serán legibles</p>
+
+
+        <button type="button" id="descargartod" onclick="downloadFile()">Descargar</button>
+        <button type="button" id="convert-button">Convertir</button>
+        <div >
+         
+            <p id="localizacionConfirmada">Los archivos deben iniciar siempre con una letra y no con un número. Si inician con un número no serán legibles</p>
+   
+        </div>
     </form>
   
 
@@ -231,6 +243,7 @@ label {
         file.name.endsWith('.ini') || 
         file.name.endsWith('.doc') || 
         file.name.endsWith('.docx') || 
+        file.name.endsWith('.docm') || 
         file.name.endsWith('.odt') || 
         file.name.endsWith('.rtf') || 
         file.name.endsWith('.tex') || 
@@ -348,6 +361,7 @@ label {
         file.name.endsWith('.ini') || 
         file.name.endsWith('.doc') || 
         file.name.endsWith('.docx') || 
+        file.name.endsWith('.docm') || 
         file.name.endsWith('.odt') || 
         file.name.endsWith('.rtf') || 
         file.name.endsWith('.tex') || 
@@ -431,60 +445,217 @@ label {
             alert('Por favor, sube un archivo primero.');
         }
 
-        } else if ( file.name.endsWith('.jpg') || 
-        file.name.endsWith('.jpeg') || 
-        file.name.endsWith('.png') || 
-        file.name.endsWith('.gif') || 
-        file.name.endsWith('.webp') || 
-        file.name.endsWith('.bmp') || 
-        file.name.endsWith('.tiff') || 
-        file.name.endsWith('.tif') || 
-        file.name.endsWith('.ico') || 
-        file.name.endsWith('.svg') || 
-        file.name.endsWith('.eps') || 
-        file.name.endsWith('.ai') || 
-        file.name.endsWith('.pdf') || 
-        file.name.endsWith('.psd') || 
-        file.name.endsWith('.xcf') || 
-        file.name.endsWith('.heif') || 
-        file.name.endsWith('.heic') || 
-        file.name.endsWith('.avif') || 
-        file.name.endsWith('.raw') || 
-        file.name.endsWith('.cr2') || 
-        file.name.endsWith('.nef') || 
-        file.name.endsWith('.orf') || 
-        file.name.endsWith('.sr2') || 
-        file.name.endsWith('.dng') || 
-        file.name.endsWith('.raf') || 
-        file.name.endsWith('.arw') || 
-        file.name.endsWith('.jp2') || 
-        file.name.endsWith('.jxr') || 
-        file.name.endsWith('.tga') || 
-        file.name.endsWith('.exr')) {
-            const fileTypeSelect = document.getElementById('file-type');
-        const vidTypeSelect = document.getElementById('video-type');
-        const imgTypeSelect = document.getElementById('image-type').value;
-        reader.onload = function(e) {
-            const fileContent = e.target.result;
-            const blob = new Blob([fileContent], { type: 'text/plain' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = file.name.replace(/\.[^/.]+$/, "." + imgTypeSelect); // Cambia la extensión al formato seleccionado
-            link.click();
-        };
-
-        if (file) {
-            reader.readAsText(file); // Leer el archivo como texto
-        } else {
-            alert('Por favor, sube un archivo primero.');
-        }
-        }
+        } 
         else{
             
             fileTypeSelect.style.display = 'none';
         }
    
 
+    }
+</script>
+<script>
+    let convertedBlob = null;
+    let convertedFileName = '';
+    
+    document.getElementById('convert-button').addEventListener('click', function() {
+        const fileInput = document.getElementById('file-upload');
+        const imgTypeSelect = document.getElementById('image-type').value;
+        const vidTypeSelect = document.getElementById('video-type').value;
+        const fileTypeSelect = document.getElementById('file-type').value;
+        const filepnoomber = document.getElementById('file-upload').value;
+        let confirmacio = document.getElementById("localizacionConfirmada");
+       
+
+
+            
+
+
+        if (fileInput.files.length === 0) {
+            alert('Por favor, selecciona un archivo.');
+            return;
+        }
+    
+        const file = fileInput.files[0];
+    
+        if (file.name.endsWith('.jpg') || 
+            file.name.endsWith('.jpeg') || 
+            file.name.endsWith('.png') || 
+            file.name.endsWith('.gif') || 
+            file.name.endsWith('.webp') || 
+            file.name.endsWith('.bmp') || 
+            file.name.endsWith('.tiff') || 
+            file.name.endsWith('.tif') || 
+            file.name.endsWith('.ico') || 
+            file.name.endsWith('.svg') || 
+            file.name.endsWith('.eps') || 
+            file.name.endsWith('.ai') || 
+            file.name.endsWith('.pdf') || 
+            file.name.endsWith('.psd') || 
+            file.name.endsWith('.xcf') || 
+            file.name.endsWith('.heif') || 
+            file.name.endsWith('.heic') || 
+            file.name.endsWith('.avif') || 
+            file.name.endsWith('.raw') || 
+            file.name.endsWith('.cr2') || 
+            file.name.endsWith('.nef') || 
+            file.name.endsWith('.orf') || 
+            file.name.endsWith('.sr2') || 
+            file.name.endsWith('.dng') || 
+            file.name.endsWith('.raf') || 
+            file.name.endsWith('.arw') || 
+            file.name.endsWith('.jp2') || 
+            file.name.endsWith('.jxr') || 
+            file.name.endsWith('.tga') || 
+            file.name.endsWith('.exr')) {
+    
+            const reader = new FileReader();
+    
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+                    canvas.toBlob(function(blob) {
+                        convertedBlob = blob;
+                        convertedFileName = file.name.replace(/\.[^/.]+$/, "." + imgTypeSelect); // Cambia la extensión al formato seleccionado
+                        alert('La conversión se completó. Ahora puedes descargar el archivo.');
+                    }, 'image/' + imgTypeSelect);
+                };
+                img.src = e.target.result;
+            };
+    
+            reader.readAsDataURL(file); // Leer el archivo como Data URL
+               
+      
+        } else if (file.name.endsWith('.mp4') || 
+            file.name.endsWith('.avi') || 
+            file.name.endsWith('.mkv') || 
+            file.name.endsWith('.mov') || 
+            file.name.endsWith('.wmv') || 
+            file.name.endsWith('.flv') || 
+            file.name.endsWith('.webm') || 
+            file.name.endsWith('.ogv') || 
+            file.name.endsWith('.3gp') || 
+            file.name.endsWith('.3g2') || 
+            file.name.endsWith('.m4v') || 
+            file.name.endsWith('.mpg') || 
+            file.name.endsWith('.mpeg') || 
+            file.name.endsWith('.mts') || 
+            file.name.endsWith('.m2ts') || 
+            file.name.endsWith('.vob') || 
+            file.name.endsWith('.ts') || 
+            file.name.endsWith('.f4v') || 
+            file.name.endsWith('.divx') || 
+            file.name.endsWith('.xvid') || 
+            file.name.endsWith('.rm') || 
+            file.name.endsWith('.rmvb') || 
+            file.name.endsWith('.asf') || 
+            file.name.endsWith('.amv') || 
+            file.name.endsWith('.yuv') || 
+            file.name.endsWith('.bik') || 
+            file.name.endsWith('.ivf')) {
+    
+            const reader = new FileReader();
+    
+            reader.onload = function(e) {
+                const fileContent = e.target.result;
+                const blob = new Blob([fileContent], { type: 'video/' + vidTypeSelect });
+                convertedBlob = blob;
+                convertedFileName = file.name.replace(/\.[^/.]+$/, "." + vidTypeSelect); // Cambia la extensión al formato seleccionado
+                alert('La conversión se completó. Ahora puedes descargar el archivo.');
+            };
+    
+            reader.readAsArrayBuffer(file); // Leer el archivo como ArrayBuffer
+        } else if (file.name.endsWith('.txt') || 
+            file.name.endsWith('.md') || 
+            file.name.endsWith('.log') || 
+            file.name.endsWith('.csv') || 
+            file.name.endsWith('.tsv') || 
+            file.name.endsWith('.json') || 
+            file.name.endsWith('.xml') || 
+            file.name.endsWith('.yaml') || 
+            file.name.endsWith('.yml') || 
+            file.name.endsWith('.ini') || 
+            file.name.endsWith('.doc') || 
+            file.name.endsWith('.docx') || 
+            file.name.endsWith('.docm') || 
+            file.name.endsWith('.odt') || 
+            file.name.endsWith('.rtf') || 
+            file.name.endsWith('.tex') || 
+            file.name.endsWith('.wpd') || 
+            file.name.endsWith('.pages') || 
+            file.name.endsWith('.pdf') || 
+            file.name.endsWith('.epub') || 
+            file.name.endsWith('.mobi') || 
+            file.name.endsWith('.azw') || 
+            file.name.endsWith('.azw3') || 
+            file.name.endsWith('.djvu') || 
+            file.name.endsWith('.xps') || 
+            file.name.endsWith('.ppt') || 
+            file.name.endsWith('.pptx') || 
+            file.name.endsWith('.odp') || 
+            file.name.endsWith('.xls') || 
+            file.name.endsWith('.xlsx') || 
+            file.name.endsWith('.ods') || 
+            file.name.endsWith('.man') || 
+            file.name.endsWith('.rst') || 
+            file.name.endsWith('.asciidoc')) {
+    
+
+
+
+                
+            const reader = new FileReader();
+    
+            reader.onload = function(e) {
+                const fileContent = e.target.result;
+                const blob = new Blob([fileContent], { type: 'text/plain' });
+                convertedBlob = blob;
+                convertedFileName = file.name.replace(/\.[^/.]+$/, "." + fileTypeSelect); // Cambia la extensión al formato seleccionado
+                alert('La conversión se completó. Ahora puedes descargar el archivo.');
+            };
+    
+            reader.readAsText(file); // Leer el archivo como texto
+        } else {
+            alert('Formato de archivo no compatible.');
+        }
+
+
+
+        // Agregarle texto
+        confirmacio.textContent = "Convertido a "+imgTypeSelect+vidTypeSelect+fileTypeSelect;
+
+
+
+    });
+    
+    function downloadFile() {
+        if (convertedBlob) {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(convertedBlob);
+            link.download = convertedFileName; 
+            link.click();
+        } else {
+            alert('Primero convierte el archivo.');
+        }
+    }
+    </script>
+ <script>
+    function showSpinner() {
+        document.getElementById('spinner').style.display = 'inline-block';
+    }
+
+    function hideSpinner() {
+        document.getElementById('spinner').style.display = 'none';
+    }
+
+    function updateConfirmationMessage(fileName, extension) {
+        const confirmationDiv = document.getElementById('localizacionConfirmada');
+        confirmationDiv.innerHTML = `<p>${fileName} convertido a ${extension}</p>`;
     }
 </script>
 </body>
